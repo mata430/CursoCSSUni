@@ -27,7 +27,12 @@
   - [Propiedad Margin: Auto](#propiedad-margin-auto)
   - [Propiedad ***inherit***](#propiedad-inherit)
   - [Concepto de margin collapse](#concepto-de-margin-collapse)
-- [**Manejo de colores**](#manejo-de-colores)
+- [***Manejo de colores***](#manejo-de-colores)
+  - [Color por nombre HTML](#color-por-nombre-html)
+  - [Manejo de colores **RGB**](#manejo-de-colores-rgb)
+  - [Codigo de colores **Hexadecimal**](#codigo-de-colores-hexadecimal)
+  - [Codigo de colores **HSL**](#codigo-de-colores-hsl)
+- [***Manejo de fondos***](#manejo-de-fondos)
 
 ## **_Introduccion_**
 
@@ -362,8 +367,62 @@ si el margen del elemento supeior es mayor ese es el que se toma. ***Los margene
 
 ![collapse](img/collapse.png)
 
-## **Manejo de colores**
+## ***Manejo de colores***
 
-Color por nombre HTML
+### Color por nombre HTML
 
 [Pagina de Colores por nombre](https://htmlcolorcodes.com/color-names/)
+
+### Manejo de colores **RGB** 
+
+![rgb](img/rgb.png)
+
+El rgb tambien maneja el concepto de transparencia, se le conoce como alpha, es significa que se va intigrar con el color de fondo.
+
+Si ponemos el valor de **1** no tenemos transparencia y si ponemos **0** tenemos la mayor transparencia, y para tener el 50% de transparencia usamos el **.5**
+
+
+- r = Red `rgb(255,0,0)`
+- g = Green `rgb(0,255,0)`
+- b = Blue `rgb(0,0,255)`
+- a = Alpha `rgb(255,0,0,.5)`
+
+``` css
+.rgb{
+    background-color: rgb(131,56,236);
+}
+.rgba{
+    background-color: rgba(131, 56, 236, .5);
+}
+```
+
+### Codigo de colores **Hexadecimal**
+
+- Se compone de 6 digitos. 
+- Se inicia con #.
+- Tambien podemos usar transparencia agregando 2 digitos mas 
+  - `#0090adff` no hay transparencia
+  - `#0090ad00` maxima transparencia
+  - `#0090ad88` 50% de transparencia
+- El primer par corresponde al color rojo `#ff0000` seundo par es verde `#00ff00` y el tercer par es azul `#0000ff.
+- Pa simplificar por pares podemos usar solo un numero o letra `#fa2` = `#ffaa22`
+
+### Codigo de colores **HSL**
+
+El hsl tambien maneja el concepto de transparencia, se le conoce como alpha, es significa que se va intigrar con el color de fondo.
+
+Si ponemos el valor de **1** no tenemos transparencia y si ponemos **0** tenemos la mayor transparencia, y para tener el 50% de transparencia usamos el **.5**
+
+
+- h = Hue `hsl(195, 100%, 50%)`  el 195 se toma de una rueda de colores.
+- s = Saturation `hsl(85, 100%, 50%)` es un porsentaje que va del 0% al 100%
+- l = Lightnees `hsl(20, 50%, 100%)`  la iluminacion es un porsentaje que va del 0% al 100%
+- a = Alpha `hsl(195,100%,50%,.5)`
+
+
+![Hue](img/hsl.png)
+![hue](img/hue.jpg)
+
+
+## ***Manejo de fondos***
+
