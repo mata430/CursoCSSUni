@@ -34,6 +34,7 @@
   - [Codigo de colores **HSL**](#codigo-de-colores-hsl)
 - [**_Manejo de fondos_**](#manejo-de-fondos)
 - [**Formato de texto**](#formato-de-texto)
+- [**Fuetes**](#fuetes)
 
 ## **_Introduccion_**
 
@@ -446,3 +447,31 @@ body {
 ```
 ## **Formato de texto**
 
+1. color y fondo, se recomienda tener un contraste con la fuente.
+   1. `color: #ef476f;`
+   2. `background-color: #219ebc;`
+2. Aliniar el texto.
+   1. `text-align: center;`
+3. Convertir todo a mayusculas.
+   1. `text-transform: uppercase;`
+4. Sombra al rededor de la fuente.
+   1. `text-shadow: 2px 2px 2px #ced4da;`
+5. Separar las letras
+   1. `letter-spacing: 3px;`
+6. Se parar las palabras.
+   1. `word-spacing: 10px;`
+7. Justificar texto.
+   1. `text-align: justify;`
+8. Direccion del texto.
+   1. `direction: rtl;`
+9. Se usa para elementos de texto pero mas para links
+   1.  `text-decoration: overline;` Linea encima del texto
+   2.  `text-decoration: line-through;` texto tachado
+   3.  `text-decoration: overline underline;`Texto envuelto entre dos lineas.
+10. Indentacion 
+    1.  `text-indent: 30px;`
+11. Espacio entre lineas.
+    1.  `line-height: 1.5;`
+12. `white-space: normal;` Para que el texto de un enter al final de lo que lo envuelve. `white-space: normal;` no envuelve el contenido en el div.
+
+## **Fuetes**
