@@ -25,14 +25,15 @@
   - [Box Sizing](#box-sizing)
   - [Propiedad Max-Width](#propiedad-max-width)
   - [Propiedad Margin: Auto](#propiedad-margin-auto)
-  - [Propiedad ***inherit***](#propiedad-inherit)
+  - [Propiedad **_inherit_**](#propiedad-inherit)
   - [Concepto de margin collapse](#concepto-de-margin-collapse)
-- [***Manejo de colores***](#manejo-de-colores)
+- [**_Manejo de colores_**](#manejo-de-colores)
   - [Color por nombre HTML](#color-por-nombre-html)
   - [Manejo de colores **RGB**](#manejo-de-colores-rgb)
   - [Codigo de colores **Hexadecimal**](#codigo-de-colores-hexadecimal)
   - [Codigo de colores **HSL**](#codigo-de-colores-hsl)
-- [***Manejo de fondos***](#manejo-de-fondos)
+- [**_Manejo de fondos_**](#manejo-de-fondos)
+- [**Formato de texto**](#formato-de-texto)
 
 ## **_Introduccion_**
 
@@ -312,8 +313,7 @@ CSS utiliza el box-content, pero no incluye el width ni el padding ni border.
 
 ![Box-sizing](img/box-sizing.png)
 
-
-### Propiedad Max-Width 
+### Propiedad Max-Width
 
 Esta propidad la ocuparemos para que no aparesca la barra de escrol y para indicar hasta donde puede maximo ajustarse. Tambien lo podemos usa en el max-height.
 se pueden usar en pixeles o en porsentaje.
@@ -335,26 +335,24 @@ La propiedad de ` 0 auto;` el cero va atomar la parte superior (top) e infrior (
 
 ![margin auto](img/marginAuto.png)
 
+### Propiedad **_inherit_**
 
-### Propiedad ***inherit***
-
-
-Donde colocamos el inhrit va heredar la propiedad del elemento padre,  no olvidar colocar una clase. sin inherit se tomara su valor por default.
+Donde colocamos el inhrit va heredar la propiedad del elemento padre, no olvidar colocar una clase. sin inherit se tomara su valor por default.
 
 ![inherit](img/inherit.png)
 
-``` css
+```css
 div {
-    padding: 10px 15px 5px 3px;
-    border: 1px solid #457b9d;
-    margin-left: 100px;
-    background-color: #f1faee;
-    max-width: 300px;
-    box-sizing: border-box;
+  padding: 10px 15px 5px 3px;
+  border: 1px solid #457b9d;
+  margin-left: 100px;
+  background-color: #f1faee;
+  max-width: 300px;
+  box-sizing: border-box;
 }
 
 p.interno {
-    margin-left: inherit;
+  margin-left: inherit;
 }
 ```
 
@@ -363,17 +361,17 @@ p.interno {
 Esto ocurre cuando tenemos dos cajas, y se aplica en los margenes inferior y superior.
 
 El margen se junta con el margn del elemnto inferior, omando un solo margen para los dos,
-si el margen del elemento supeior es mayor ese es el que se toma. ***Los margenes no se suman***
+si el margen del elemento supeior es mayor ese es el que se toma. **_Los margenes no se suman_**
 
 ![collapse](img/collapse.png)
 
-## ***Manejo de colores***
+## **_Manejo de colores_**
 
 ### Color por nombre HTML
 
 [Pagina de Colores por nombre](https://htmlcolorcodes.com/color-names/)
 
-### Manejo de colores **RGB** 
+### Manejo de colores **RGB**
 
 ![rgb](img/rgb.png)
 
@@ -381,26 +379,25 @@ El rgb tambien maneja el concepto de transparencia, se le conoce como alpha, es 
 
 Si ponemos el valor de **1** no tenemos transparencia y si ponemos **0** tenemos la mayor transparencia, y para tener el 50% de transparencia usamos el **.5**
 
-
 - r = Red `rgb(255,0,0)`
 - g = Green `rgb(0,255,0)`
 - b = Blue `rgb(0,0,255)`
 - a = Alpha `rgb(255,0,0,.5)`
 
-``` css
-.rgb{
-    background-color: rgb(131,56,236);
+```css
+.rgb {
+  background-color: rgb(131, 56, 236);
 }
-.rgba{
-    background-color: rgba(131, 56, 236, .5);
+.rgba {
+  background-color: rgba(131, 56, 236, 0.5);
 }
 ```
 
 ### Codigo de colores **Hexadecimal**
 
-- Se compone de 6 digitos. 
+- Se compone de 6 digitos.
 - Se inicia con #.
-- Tambien podemos usar transparencia agregando 2 digitos mas 
+- Tambien podemos usar transparencia agregando 2 digitos mas
   - `#0090adff` no hay transparencia
   - `#0090ad00` maxima transparencia
   - `#0090ad88` 50% de transparencia
@@ -413,16 +410,39 @@ El hsl tambien maneja el concepto de transparencia, se le conoce como alpha, es 
 
 Si ponemos el valor de **1** no tenemos transparencia y si ponemos **0** tenemos la mayor transparencia, y para tener el 50% de transparencia usamos el **.5**
 
-
-- h = Hue `hsl(195, 100%, 50%)`  el 195 se toma de una rueda de colores.
+- h = Hue `hsl(195, 100%, 50%)` el 195 se toma de una rueda de colores.
 - s = Saturation `hsl(85, 100%, 50%)` es un porsentaje que va del 0% al 100%
-- l = Lightnees `hsl(20, 50%, 100%)`  la iluminacion es un porsentaje que va del 0% al 100%
+- l = Lightnees `hsl(20, 50%, 100%)` la iluminacion es un porsentaje que va del 0% al 100%
 - a = Alpha `hsl(195,100%,50%,.5)`
-
 
 ![Hue](img/hsl.png)
 ![hue](img/hue.jpg)
 
+## **_Manejo de fondos_**
 
-## ***Manejo de fondos***
+``` css
+body {
+    background-color: dodgerblue;
+    color: cornsilk;
+    background-image: url("/img/fondo.png");
+    background-repeat: no-repeat;
+}
+```
+
+- Aplicar un `background-color: dodgerblue;` a toda nuestra pagina web.
+- Aplicar imagen de fondo  `background-image: url("/img/fondo.png");`
+- Poner un color de fondo paraecido al de la imagen.
+- Usaremos `background-repeat: no-repeat;` para que al hacer mas pequena la pagina el fondo no se repita.
+ 
+De esta forma podemos simplificar
+ 
+``` css
+body {
+    color: cornsilk;
+    
+    background-attachment: fixed;
+    background: dodgerblue url("/img/fondo.png") no-repeat right top;
+}
+```
+## **Formato de texto**
 

@@ -1,4 +1,4 @@
-body{
+body {
     color: cornsilk;
     /*
     background-color: dodgerblue;
@@ -9,7 +9,8 @@ body{
     background-attachment: fixed;
     background: dodgerblue url("/img/fondo.png") no-repeat right top;
 }
-h1{
+
+h1 {
     text-align: center;
     background-color: dodgerblue;
 }
