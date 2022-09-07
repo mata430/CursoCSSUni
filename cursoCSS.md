@@ -15,7 +15,7 @@
   - [Ancho de Bordes](#ancho-de-bordes)
     - [Como aplicar una medida distinta en cada lado?](#como-aplicar-una-medida-distinta-en-cada-lado)
 - [**_Codigo de Colores en Bordes_**](#codigo-de-colores-en-bordes)
-    - [Como aplicar un color distinto en cada lado?](#como-aplicar-un-color-distinto-en-cada-lado)
+  - [Como aplicar un color distinto en cada lado?](#como-aplicar-un-color-distinto-en-cada-lado)
   - [Redondeo de bordes](#redondeo-de-bordes)
 - [**_BOX MODEL_**](#box-model)
   - [Ancho del Elemento Box Model](#ancho-del-elemento-box-model)
@@ -421,30 +421,31 @@ Si ponemos el valor de **1** no tenemos transparencia y si ponemos **0** tenemos
 
 ## **_Manejo de fondos_**
 
-``` css
+```css
 body {
-    background-color: dodgerblue;
-    color: cornsilk;
-    background-image: url("/img/fondo.png");
-    background-repeat: no-repeat;
+  background-color: dodgerblue;
+  color: cornsilk;
+  background-image: url("/img/fondo.png");
+  background-repeat: no-repeat;
 }
 ```
 
 - Aplicar un `background-color: dodgerblue;` a toda nuestra pagina web.
-- Aplicar imagen de fondo  `background-image: url("/img/fondo.png");`
+- Aplicar imagen de fondo `background-image: url("/img/fondo.png");`
 - Poner un color de fondo paraecido al de la imagen.
 - Usaremos `background-repeat: no-repeat;` para que al hacer mas pequena la pagina el fondo no se repita.
- 
+
 De esta forma podemos simplificar
- 
-``` css
+
+```css
 body {
-    color: cornsilk;
-    
-    background-attachment: fixed;
-    background: dodgerblue url("/img/fondo.png") no-repeat right top;
+  color: cornsilk;
+
+  background-attachment: fixed;
+  background: dodgerblue url("/img/fondo.png") no-repeat right top;
 }
 ```
+
 ## **Formato de texto**
 
 1. color y fondo, se recomienda tener un contraste con la fuente.
@@ -465,13 +466,27 @@ body {
 8. Direccion del texto.
    1. `direction: rtl;`
 9. Se usa para elementos de texto pero mas para links
-   1.  `text-decoration: overline;` Linea encima del texto
-   2.  `text-decoration: line-through;` texto tachado
-   3.  `text-decoration: overline underline;`Texto envuelto entre dos lineas.
-10. Indentacion 
-    1.  `text-indent: 30px;`
+   1. `text-decoration: overline;` Linea encima del texto
+   2. `text-decoration: line-through;` texto tachado
+   3. `text-decoration: overline underline;`Texto envuelto entre dos lineas.
+10. Indentacion
+    1. `text-indent: 30px;`
 11. Espacio entre lineas.
-    1.  `line-height: 1.5;`
+    1. `line-height: 1.5;`
 12. `white-space: normal;` Para que el texto de un enter al final de lo que lo envuelve. `white-space: normal;` no envuelve el contenido en el div.
 
 ## **Fuetes**
+
+La fuentes de tipo serif son las que tienen las puntas redondiadas.
+
+Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias opciones, devido a que algunas no s pueden reconoser por l navegador, por si falla alguna pueda mostrar otra.
+
+> :bulb: **Tip:** Si en el nombre de la funte tenemos espacios utilizaremos comillas.
+
+```css
+.fuente_times {
+  font-family: "Times New Roman", Times, serif;
+}
+```
+
+call
