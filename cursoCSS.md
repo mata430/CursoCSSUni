@@ -15,7 +15,7 @@
   - [Ancho de Bordes](#ancho-de-bordes)
     - [Como aplicar una medida distinta en cada lado?](#como-aplicar-una-medida-distinta-en-cada-lado)
 - [**_Codigo de Colores en Bordes_**](#codigo-de-colores-en-bordes)
-  - [Como aplicar un color distinto en cada lado?](#como-aplicar-un-color-distinto-en-cada-lado)
+    - [Como aplicar un color distinto en cada lado?](#como-aplicar-un-color-distinto-en-cada-lado)
   - [Redondeo de bordes](#redondeo-de-bordes)
 - [**_BOX MODEL_**](#box-model)
   - [Ancho del Elemento Box Model](#ancho-del-elemento-box-model)
@@ -34,7 +34,18 @@
   - [Codigo de colores **HSL**](#codigo-de-colores-hsl)
 - [**_Manejo de fondos_**](#manejo-de-fondos)
 - [**Formato de texto**](#formato-de-texto)
-- [**Fuetes**](#fuetes)
+- [**Fuentes**](#fuentes)
+- [**Estilos de funete**](#estilos-de-funete)
+- [Propiedad de Font-Size](#propiedad-de-font-size)
+- [Google Fonts](#google-fonts)
+- [Efectos con Google Fonts](#efectos-con-google-fonts)
+- [**Atributo font**](#atributo-font)
+- [Menejo de Iconos](#menejo-de-iconos)
+  - [Iconos Bootstrap](#iconos-bootstrap)
+  - [Pasos para usar los iconos en Bootstrap](#pasos-para-usar-los-iconos-en-bootstrap)
+- [Iconos de Google](#iconos-de-google)
+- [Iconos de Ionicons](#iconos-de-ionicons)
+- [**Propiedad Display**](#propiedad-display)
 
 ## **_Introduccion_**
 
@@ -475,13 +486,21 @@ body {
     1. `line-height: 1.5;`
 12. `white-space: normal;` Para que el texto de un enter al final de lo que lo envuelve. `white-space: normal;` no envuelve el contenido en el div.
 
-## **Fuetes**
+## **Fuentes**
 
-La fuentes de tipo serif son las que tienen las puntas redondiadas.
+Tipos de funtes mas representativas.amarillo
+
+- Times New Roman (serif)
+- Georgia (serif)
+- Arial (sans-serif)
+- Verdana (sans-serif)
+- Courier New (monospace)
+- Lucida Handwriting (cursive)
 
 Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias opciones, devido a que algunas no s pueden reconoser por l navegador, por si falla alguna pueda mostrar otra.
 
 > :bulb: **Tip:** Si en el nombre de la funte tenemos espacios utilizaremos comillas.
+> :bulb: **Tip:** La fuentes de tipo serif son las que tienen las puntas redondiadas.
 
 ```css
 .fuente_times {
@@ -489,4 +508,183 @@ Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias o
 }
 ```
 
-call
+## **Estilos de funete**
+
+`font-style:`
+
+- italic
+- normal
+- oblique
+- inherit
+- initial
+- unset
+
+`font-weight:`
+
+- Ancho de la funte
+- 100 a 900
+- bold (negritas)
+- bolder (mas ancho)
+- lighter (mas angosta)
+- normal
+
+`font-variant:`
+
+- normal
+- small-caps (La primera letra en mayuscula, mas alta)
+- inherit
+- initial
+- unset
+
+## Propiedad de Font-Size
+
+`font-size:`
+
+> :bulb: **Tip:** La usaremos para incrementar el tamano de la fuente.
+
+- large
+- larger (mas grande)
+- medium
+- small ( no es responciva)
+- smaller (mas pequena)
+- x-larger
+- x-small
+- xx-larger
+- xx-small
+
+Tambien podemos utilizar un valor
+
+- pixeles (`16px`)
+- 1em (es igual a 16px)
+  > :bulb: **Tip:** No es soportardo en verciones anteriores de internet explorer.
+- 3vw
+  > :bulb: **Tip:** tomo en cuenta el alto y ancho de la pantalla w - weight (ancho) h - height (alto)  
+  > :bulb: Es una fuente responciva  
+  > :bulb: no esta soportado en todos los navegadores.
+
+## Google Fonts
+
+Aqui podremos encontrar muchas funtes de forma gratuita. [Google Fonts](https://fonts.google.com/)
+
+> :bulb: **Tip:** Hay que considerar que puede tardar mas la pagina para cargarse, amenos que descarguemos la fuente y la incluyamos en la aplicacion web.
+
+Hay dos formas de utilizar las fuentes de google.
+
+- `<link>`
+  - > :bulb: **Tip:** Esta va insertada en el documento html
+- `@import`
+  - > :bulb: **Tip:** Esta va insertada en el documento CSS, se pega en la parte de arriva si la etiqueta style
+
+Para utilizarla en un titulo
+
+usaremos `font-family:` y en la pagina de google copiaremos donde dice **CSS rules to specify families**
+
+Si queremos importar varias fuentes de google solo copiamos otra fuente con `@import` y la pegamos abajo de la primera
+
+> :bulb: **Tip:** Podemos reutilizar la misma linea de codigo para incluir mas fuenstes.
+
+`@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Roboto&display=swap');`  
+se agrega && family mas el nombre de la fuente.
+
+## Efectos con Google Fonts
+
+Aqui la [guia](https://developers.google.com/fonts/docs/getting_started)
+
+> :bulb: **Tip:** No lleva 2 en css
+
+@import url('https://fonts.googleapis.com/**css**?family=Sofia|Roboto&effect=shadow-multiple&display=swap');
+
+`https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d-float`
+
+## **Atributo font**
+
+Lo podemos hacer de una forma reducida o simplificada.
+
+```css
+.fuente_roboto{
+    /*
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: small-caps;
+    font-size: 20px;
+    */
+    /*font: font-style font-variant font-weight *font-size/line-heigth *font-family;*/
+    font: italic small-caps bolder 20px Roboto, sans-serif;
+```
+
+## Menejo de Iconos
+
+### Iconos Bootstrap
+
+Pagina de iconos de [Bootstrap](https://icons.getbootstrap.com/)
+
+### Pasos para usar los iconos en Bootstrap
+
+1. Click en install
+2. CDN Link publico. (lo podemos descargar **download** y lo podemos instalar en nuestro proyecto **npm**)
+3. Hay 2 opciones
+   1. Agregar un `<link>` va en el HTML
+   2. Importarla `@import` Va en el CSS
+4. Lo pegamos en el HTML
+5. Despues elegimos un icono en la pagina y nos dara 3 opciones.
+   1. Icon font (HTML)
+   2. Code point
+   3. Copy HTML (SVG)
+
+Podemos modificar su tamano y color
+
+## Iconos de Google
+
+
+Pagina de [icons Google.](https://fonts.google.com/icons?selected=Material+Icons&icon.style=Outlined)
+
+Para usarlos. 
+
+1. Click en [developer guide](https://developers.google.com/fonts/docs/material_icons)
+2. La forma más sencilla de configurar las fuentes de íconos para usarlas en cualquier página web es mediante Google Fonts. Lo único que debes hacer es incluir una sola línea de HTML:
+
+``` css
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+3. Lo pegamos en el HTML.
+4. El nombre del icono se va especificar como el valor de este elemento.
+
+
+``` css
+<p>
+    <i class="material-icons">search</i>
+       Búsqueda
+</p>
+```
+
+`vertical-align: bottom;` Podemos aliniar el icono con el texto y el parrafo.
+
+## Iconos de Ionicons
+
+Pagina de [ionicons](https://ionic.io/ionicons)
+
+Pasos para usarlos iconos
+
+1. Click en [usage](https://ionic.io/ionicons/usage)
+2. Colocar el link antes del `<body>` ya que es un archivo de javascript
+``` js
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+```
+
+3. Usaremos los iconos de esta forma.
+
+``` html
+<p>
+    <ion-icon name="checkmark-done-outline" class="icono_azul" ></ion-icon>
+            Listo
+</p>
+
+
+```
+> :bulb: **Tip:** Por cada link que agreguemos la pagina web se va a demorar mas en cargar.
+
+## **Propiedad Display**
+
