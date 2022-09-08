@@ -17,6 +17,11 @@
 - [**_Codigo de Colores en Bordes_**](#codigo-de-colores-en-bordes)
     - [Como aplicar un color distinto en cada lado?](#como-aplicar-un-color-distinto-en-cada-lado)
   - [Redondeo de bordes](#redondeo-de-bordes)
+    - [Dominar las esquinas](#dominar-las-esquinas)
+  - [Esquina Redondeada con fondo](#esquina-redondeada-con-fondo)
+  - [Esquina redondeada con contorno](#esquina-redondeada-con-contorno)
+  - [Borde con imagen de fondo](#borde-con-imagen-de-fondo)
+  - [Borde Circular](#borde-circular)
 - [**_BOX MODEL_**](#box-model)
   - [Ancho del Elemento Box Model](#ancho-del-elemento-box-model)
   - [Outline](#outline)
@@ -51,6 +56,13 @@
   - [Display None](#display-none)
 - [**Posicionamiento de Elementos**](#posicionamiento-de-elementos)
   - [Centrar Div](#centrar-div)
+- [Posicionamiento Estatico](#posicionamiento-estatico)
+  - [Tipos de posicionamiento](#tipos-de-posicionamiento)
+- [Posicionamiento Relativa](#posicionamiento-relativa)
+- [Posicionamiento Fixed (ajustado)](#posicionamiento-fixed-ajustado)
+- [Posicionamiento Absoluta](#posicionamiento-absoluta)
+- [Posicionamiento Sticky (pegajoso)](#posicionamiento-sticky-pegajoso)
+- [Posicionamiento Z-index](#posicionamiento-z-index)
 
 ## **_Introduccion_**
 
@@ -164,7 +176,7 @@ p.centrar {
 
 ### Colores y Bordes
 
-Border se refiere al contorno, y los 10px al ancho de la line del contorno, solid al tipo de contorno y por ultimo el color del la linea del border.
+Border se refiere al contorno, y los 10px al ancho de la linea del contorno, solid al tipo de contorno y por ultimo el color del la linea del border.
 
 ```css
 .rojo {
@@ -271,6 +283,8 @@ Para poder visualizar los hanchos de los bordes podemos usar la consola y desple
 
 > Podemos crear links que parescan botones, pero mas estilizados.
 
+Cuando el `border-radius: 20px;` lleva un unico valor se proporsiona en totas las esquinas  
+
 ```css
 .solido {
   border: solid red;
@@ -278,11 +292,25 @@ Para poder visualizar los hanchos de los bordes podemos usar la consola y desple
   border-radius: 20px;
 }
 ```
+#### Dominar las esquinas
 
-- En el border-radius **20px** es la esquina superior izquierda.
-- En el border-radius **0px** es la esquina superior derecha.
-- En el border-radius **10px** es la esquina inferior derecha.
-- En el border-radius **0px** es la esquina inferior izquierda.
+``` css
+#b4 {
+  border-radius: 15px 50px 30px 5px;
+  background-color: red;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+```
+
+- En el border-radius **15px** es la esquina superior izquierda.
+- En el border-radius **50px** es la esquina superior derecha.
+- En el border-radius **30px** es la esquina inferior derecha.
+- En el border-radius **5px** es la esquina inferior izquierda.
+
+
+Aqui seria de forma simplificada  
 
 ```css
 .redondeado {
@@ -290,6 +318,72 @@ Para poder visualizar los hanchos de los bordes podemos usar la consola y desple
   border-radius: 20px 0px 10px 0px;
 }
 ```
+
+> :bulb: **Tip:** Con `border-radios:` <span style="color: yellow"> **Podemos hacer las esquinas redondeadas**</span>
+
+### Esquina Redondeada con fondo
+
+> :bulb: **Tip:** Usaremos `background-color:`
+
+> :bulb: **Tip:** El borde se puede ver hasta que le damos un color y unas medidas.
+
+``` css
+#b1 {
+  border-radius: 25px;
+  background-color: greenyellow;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+```
+
+### Esquina redondeada con contorno
+
+> :bulb: **Tip:** Usaremos `border:`
+
+``` css
+#b2 {
+  border-radius: 25px;
+  border: 2px solid blueviolet;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+```
+
+### Borde con imagen de fondo
+
+> :bulb: **Tip:** Usaremos `background-image:`  
+> :bulb: **Tip:** Y para darle una dimencion usaremos `background-position:` y para indicar que parte de l imagen se mostrara `left top;`  
+> :bulb: **Tip:** si no ocupa todo el tamano que se repita con `background-repeat: repeat;`
+
+``` css
+#b3 {
+  border-radius: 25px;
+  background-image: url(fondo.jpg);
+  background-position: left top;
+  background-repeat: repeat;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+```
+
+### Borde Circular
+
+> :bulb: **Tip:** Para hacerlo circular usaremos `border-radius: 50%;` pero utilizaremos % en ves de pixeles
+
+``` css
+#b5 {
+  border-radius: 50%;
+  background-color: blue;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+```
+
+![bordes](img/bordescolor.png)
 
 ## **_BOX MODEL_**
 
@@ -325,8 +419,9 @@ Se encuentra entre el border y el contenido.
 ### Box Sizing
 
 CSS utiliza el box-content, pero no incluye el width ni el padding ni border.
-
-> Si no queremos pasarnos de la medida qu le indicamos al width debemos utilizar `box-sizing: border-box`
+> :bulb: **Tip:** Si no queremos pasarnos de la medida que le indicamos al width debemos utilizar `box-sizing: border-box` 
+ 
+> :bulb: Esta propiedad hace que cuando agregamos margin, padding o border a los elmntos no creesca mas del tamano que le dimos.
 
 ![Box-sizing](img/box-sizing.png)
 
@@ -641,23 +736,21 @@ Podemos modificar su tamano y color
 
 ## Iconos de Google
 
-
 Pagina de [icons Google.](https://fonts.google.com/icons?selected=Material+Icons&icon.style=Outlined)
 
-Para usarlos. 
+Para usarlos.
 
 1. Click en [developer guide](https://developers.google.com/fonts/docs/material_icons)
 2. La forma más sencilla de configurar las fuentes de íconos para usarlas en cualquier página web es mediante Google Fonts. Lo único que debes hacer es incluir una sola línea de HTML:
 
-``` css
+```css
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 
 3. Lo pegamos en el HTML.
 4. El nombre del icono se va especificar como el valor de este elemento.
 
-
-``` css
+```css
 <p>
     <i class="material-icons">search</i>
        Búsqueda
@@ -674,21 +767,21 @@ Pasos para usarlos iconos
 
 1. Click en [usage](https://ionic.io/ionicons/usage)
 2. Colocar el link antes del `<body>` ya que es un archivo de javascript
-``` js
+
+```js
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 ```
 
 3. Usaremos los iconos de esta forma.
 
-``` html
+```html
 <p>
-    <ion-icon name="checkmark-done-outline" class="icono_azul" ></ion-icon>
-            Listo
+  <ion-icon name="checkmark-done-outline" class="icono_azul"></ion-icon>
+  Listo
 </p>
-
-
 ```
+
 > :bulb: **Tip:** Por cada link que agreguemos la pagina web se va a demorar mas en cargar.
 
 ## **Propiedad Display**
@@ -699,19 +792,20 @@ Nos va permitir mostrar o uccultar elementos o tambien modificar la forma en que
 
 Etiquetas con propiedad display block, van ocupar una nueva linea por completo
 
-``` html
+```html
 <h1>Título</h1>
 <div>Div</div>
 <p>Párrafo</p>
 ```
 
-``` html
+```html
 <ul>
-     <li>Item 1</li>
-     <li>Item 2</li>
-     <li>Item 3</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
+
 ![block](img/block.png)
 
 ### Display inline
@@ -719,7 +813,7 @@ Etiquetas con propiedad display block, van ocupar una nueva linea por completo
 `<span>`  
 `<a href="#">Link 1</a>`
 
-Para modificar los elementos de block y se muestren en una sola linea usaremos. 
+Para modificar los elementos de block y se muestren en una sola linea usaremos.
 
 `display: inline;`
 
@@ -733,3 +827,58 @@ Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio a difer
 
 ### Centrar Div
 
+1. Asignar un tamano `width: 50%;`
+   1. cuando usamos porcentajes este cambia conforme cambia el tamano de la ventana.
+   2. tambien podemos usar `max-width: 50%;`
+2. Border `border: 3px solid firebrick;`
+3. margin `margin: auto;`
+   1. con auto el espacio del lado derecho e izquierdo se vuelve el mismo, y se **centra**.
+
+## Posicionamiento Estatico
+
+### Tipos de posicionamiento
+
+🔴 static  
+🔴 relative  
+🔴 fixed  
+🔴 absolute  
+🔴 sticky
+
+> :bulb: **Tip:** Cuando usamos static no podremos utilizr top: left: ...
+
+## Posicionamiento Relativa
+
+Con esta posicion si va a fectar el top: left: botton: right:
+
+`position: relative;`
+
+> :bulb: **Tip:** Si tenemos otros elementos, no afectaran al div, siempre seguira reservando su espacio.
+
+## Posicionamiento Fixed (ajustado)
+
+Es util para menus de navegacion o botones de chat. ya que siempre se va amantener fijo. Se ajusta al <span style="color:red"> **VIEWPORT**</span>
+
+`position: fixed;`
+
+> :bulb: **Tip:** No se reserva su espacio
+
+## Posicionamiento Absoluta
+
+Normalmente la utilizaremos dentro de otro elemnto **DIV**
+
+> :bulb: **Tip:** Si no esta dentro de un DIV este tomara el body.  
+> :bulb: El div padre no debe ser de tipo estatic
+
+`position: absolute;`
+
+![positionabsoluta](img/positionabsoluta.png)
+
+## Posicionamiento Sticky (pegajoso)
+
+> :bulb: **Tip:** Para que funcione tenemos que usar top, right , bottom o left
+
+> :bulb: **Tip:** Funsiona de manera relativa hasta el momento que sale de pantalla, entonces se vuelve como un fixed
+
+> :bulb: **Tip:** Consideraciones Si estamos trabajando con safari usaremos una coreccion. `position: -wekit-sticky;` y no funciona en internet explorer.
+
+## Posicionamiento Z-index
