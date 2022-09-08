@@ -46,6 +46,11 @@
 - [Iconos de Google](#iconos-de-google)
 - [Iconos de Ionicons](#iconos-de-ionicons)
 - [**Propiedad Display**](#propiedad-display)
+  - [Display Block](#display-block)
+  - [Display inline](#display-inline)
+  - [Display None](#display-none)
+- [**Posicionamiento de Elementos**](#posicionamiento-de-elementos)
+  - [Centrar Div](#centrar-div)
 
 ## **_Introduccion_**
 
@@ -687,4 +692,44 @@ Pasos para usarlos iconos
 > :bulb: **Tip:** Por cada link que agreguemos la pagina web se va a demorar mas en cargar.
 
 ## **Propiedad Display**
+
+### Display Block
+
+Nos va permitir mostrar o uccultar elementos o tambien modificar la forma en que se muestran algunos elementos HTML
+
+Etiquetas con propiedad display block, van ocupar una nueva linea por completo
+
+``` html
+<h1>Título</h1>
+<div>Div</div>
+<p>Párrafo</p>
+```
+
+``` html
+<ul>
+     <li>Item 1</li>
+     <li>Item 2</li>
+     <li>Item 3</li>
+</ul>
+```
+![block](img/block.png)
+
+### Display inline
+
+`<span>`  
+`<a href="#">Link 1</a>`
+
+Para modificar los elementos de block y se muestren en una sola linea usaremos. 
+
+`display: inline;`
+
+![inline](img/inline.png)
+
+### Display None
+
+Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio a diferencia de `visibility: hidden;` que mantiene el espacio.
+
+## **Posicionamiento de Elementos**
+
+### Centrar Div
 
