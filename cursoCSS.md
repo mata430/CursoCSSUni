@@ -56,13 +56,27 @@
   - [Display None](#display-none)
 - [**Posicionamiento de Elementos**](#posicionamiento-de-elementos)
   - [Centrar Div](#centrar-div)
-- [Posicionamiento Estatico](#posicionamiento-estatico)
+  - [Posicionamiento Estatico](#posicionamiento-estatico)
   - [Tipos de posicionamiento](#tipos-de-posicionamiento)
-- [Posicionamiento Relativa](#posicionamiento-relativa)
-- [Posicionamiento Fixed (ajustado)](#posicionamiento-fixed-ajustado)
-- [Posicionamiento Absoluta](#posicionamiento-absoluta)
-- [Posicionamiento Sticky (pegajoso)](#posicionamiento-sticky-pegajoso)
-- [Posicionamiento Z-index](#posicionamiento-z-index)
+  - [Posicionamiento Relativa](#posicionamiento-relativa)
+  - [Posicionamiento Fixed (ajustado)](#posicionamiento-fixed-ajustado)
+  - [Posicionamiento Absoluta](#posicionamiento-absoluta)
+  - [Posicionamiento Sticky (pegajoso)](#posicionamiento-sticky-pegajoso)
+  - [Posicionamiento Z-index](#posicionamiento-z-index)
+  - [Propiedad Overflow](#propiedad-overflow)
+  - [Propiedad Float](#propiedad-float)
+  - [Propiedad Display Inline-Block](#propiedad-display-inline-block)
+  - [**Menu** con la propiedad Display Inline-Block](#menu-con-la-propiedad-display-inline-block)
+- [**Selectores**](#selectores)
+  - [Selectores Combinados](#selectores-combinados)
+    - [Selectores Decendientes](#selectores-decendientes)
+    - [Selector Child](#selector-child)
+    - [Selector Sibling (Adyacente)](#selector-sibling-adyacente)
+  - [Pseudo Clases](#pseudo-clases)
+- [Pseudo Elementos](#pseudo-elementos)
+- [Transparencia](#transparencia)
+  - [Transparencia en imagenes](#transparencia-en-imagenes)
+- [**Gradientes**](#gradientes)
 
 ## **_Introduccion_**
 
@@ -283,7 +297,7 @@ Para poder visualizar los hanchos de los bordes podemos usar la consola y desple
 
 > Podemos crear links que parescan botones, pero mas estilizados.
 
-Cuando el `border-radius: 20px;` lleva un unico valor se proporsiona en totas las esquinas  
+Cuando el `border-radius: 20px;` lleva un unico valor se proporsiona en totas las esquinas
 
 ```css
 .solido {
@@ -292,9 +306,10 @@ Cuando el `border-radius: 20px;` lleva un unico valor se proporsiona en totas la
   border-radius: 20px;
 }
 ```
+
 #### Dominar las esquinas
 
-``` css
+```css
 #b4 {
   border-radius: 15px 50px 30px 5px;
   background-color: red;
@@ -309,8 +324,7 @@ Cuando el `border-radius: 20px;` lleva un unico valor se proporsiona en totas la
 - En el border-radius **30px** es la esquina inferior derecha.
 - En el border-radius **5px** es la esquina inferior izquierda.
 
-
-Aqui seria de forma simplificada  
+Aqui seria de forma simplificada
 
 ```css
 .redondeado {
@@ -327,7 +341,7 @@ Aqui seria de forma simplificada
 
 > :bulb: **Tip:** El borde se puede ver hasta que le damos un color y unas medidas.
 
-``` css
+```css
 #b1 {
   border-radius: 25px;
   background-color: greenyellow;
@@ -341,7 +355,7 @@ Aqui seria de forma simplificada
 
 > :bulb: **Tip:** Usaremos `border:`
 
-``` css
+```css
 #b2 {
   border-radius: 25px;
   border: 2px solid blueviolet;
@@ -357,7 +371,7 @@ Aqui seria de forma simplificada
 > :bulb: **Tip:** Y para darle una dimencion usaremos `background-position:` y para indicar que parte de l imagen se mostrara `left top;`  
 > :bulb: **Tip:** si no ocupa todo el tamano que se repita con `background-repeat: repeat;`
 
-``` css
+```css
 #b3 {
   border-radius: 25px;
   background-image: url(fondo.jpg);
@@ -373,7 +387,7 @@ Aqui seria de forma simplificada
 
 > :bulb: **Tip:** Para hacerlo circular usaremos `border-radius: 50%;` pero utilizaremos % en ves de pixeles
 
-``` css
+```css
 #b5 {
   border-radius: 50%;
   background-color: blue;
@@ -419,8 +433,9 @@ Se encuentra entre el border y el contenido.
 ### Box Sizing
 
 CSS utiliza el box-content, pero no incluye el width ni el padding ni border.
-> :bulb: **Tip:** Si no queremos pasarnos de la medida que le indicamos al width debemos utilizar `box-sizing: border-box` 
- 
+
+> :bulb: **Tip:** Si no queremos pasarnos de la medida que le indicamos al width debemos utilizar `box-sizing: border-box`
+
 > :bulb: Esta propiedad hace que cuando agregamos margin, padding o border a los elmntos no creesca mas del tamano que le dimos.
 
 ![Box-sizing](img/box-sizing.png)
@@ -834,7 +849,7 @@ Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio a difer
 3. margin `margin: auto;`
    1. con auto el espacio del lado derecho e izquierdo se vuelve el mismo, y se **centra**.
 
-## Posicionamiento Estatico
+### Posicionamiento Estatico
 
 ### Tipos de posicionamiento
 
@@ -846,7 +861,7 @@ Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio a difer
 
 > :bulb: **Tip:** Cuando usamos static no podremos utilizr top: left: ...
 
-## Posicionamiento Relativa
+### Posicionamiento Relativa
 
 Con esta posicion si va a fectar el top: left: botton: right:
 
@@ -854,7 +869,7 @@ Con esta posicion si va a fectar el top: left: botton: right:
 
 > :bulb: **Tip:** Si tenemos otros elementos, no afectaran al div, siempre seguira reservando su espacio.
 
-## Posicionamiento Fixed (ajustado)
+### Posicionamiento Fixed (ajustado)
 
 Es util para menus de navegacion o botones de chat. ya que siempre se va amantener fijo. Se ajusta al <span style="color:red"> **VIEWPORT**</span>
 
@@ -862,7 +877,7 @@ Es util para menus de navegacion o botones de chat. ya que siempre se va amanten
 
 > :bulb: **Tip:** No se reserva su espacio
 
-## Posicionamiento Absoluta
+### Posicionamiento Absoluta
 
 Normalmente la utilizaremos dentro de otro elemnto **DIV**
 
@@ -873,7 +888,7 @@ Normalmente la utilizaremos dentro de otro elemnto **DIV**
 
 ![positionabsoluta](img/positionabsoluta.png)
 
-## Posicionamiento Sticky (pegajoso)
+### Posicionamiento Sticky (pegajoso)
 
 > :bulb: **Tip:** Para que funcione tenemos que usar top, right , bottom o left
 
@@ -881,4 +896,188 @@ Normalmente la utilizaremos dentro de otro elemnto **DIV**
 
 > :bulb: **Tip:** Consideraciones Si estamos trabajando con safari usaremos una coreccion. `position: -wekit-sticky;` y no funciona en internet explorer.
 
-## Posicionamiento Z-index
+### Posicionamiento Z-index
+
+Nos sirve para poder mostar elementos por detras o ensima de otros.
+
+`z-index: -1;` se mostrara atras de el primer elemento.  
+`z-index: 1;` se mostrara por encima de el primer elemento.
+
+### Propiedad Overflow
+
+Es cuando el texto se sale de nuestro contenedor.
+
+`overflow:visible;` muestra todo lo que sale del elemento. Es la propiedad por default
+
+`overflow: hidden;` Todo lo que se sale se va ocultar.
+
+`overflow: scroll;` Se va amostrar dos barras con scroll para poder ver todo el contenido
+
+`overflow: auto;` Solo va a mostras las varras de scroll necesarias.
+
+> :bulb: **Tip:** Esta propiedad solo se va poder travajar si especificamos un alto (height), ya que al quitar el height se deslplagara todo el contenido en el elemento div
+
+> :bulb: **Tip:** Lo podemos configurar para el ejex o eje y con `overflow-x: o overflow-y:` y podemos usarlo con las propiedades anteriores.
+
+### Propiedad Float
+
+Con esta propiedad podemos colocar mas elementos en la misma linea. Cuado ya no caben se pasan ala siguiente linea
+
+`float: left;` `float: right;`
+
+> :bulb: **Tip:** Para poder a gregar mas elentos en otra linea, cortando la propiedad de float usaremos `clear: both;` para limpiar los dos lados o left, right para elegir que lado limpiar
+
+### Propiedad Display Inline-Block
+
+Con esta propiedad `display: inline-block;` podemos controlar el alto (height y padding) de los elementos incluso si son de tipo inline. Con esto va adquirir las dos caracteristicas, inline y block y asi poder aplicar las propiedades
+
+### **Menu** con la propiedad Display Inline-Block
+
+Con esta propiedad podemos usar una lista como un meno sin necesidad de flotar los elementos.
+
+## **Selectores**
+
+### Selectores Combinados
+
+#### Selectores Decendientes
+
+> :bulb: **Tip:** Una ves que selecciones un elemento se va aplicar el estilo que hemos configurado para todos los elementos decendientes sin importar si son elementos directos e indirectos. Aun que esten dentro de otra equiqueta s les va aplicar las propiedades que asignemos.
+
+```css
+div.contenedor.descendiente p {
+  background-color: #fdffb6;
+}
+```
+
+> :bulb: **Tip:** Solo necesitamos ponr la clase un espacio y las etiquetas que queremos afeactar.
+
+#### Selector Child
+
+> :bulb: **Tip:** Para afectar solo a los hijos de un div utilizarmos div.la clase espacio > p. para dejar fuera a otros parrafos que esten dentro de otra etiqueta que asu ves estan dentro del div.
+
+```css
+div.contenedor.hijo > p {
+  background-color: #ffc6ff;
+}
+```
+
+#### Selector Sibling (Adyacente)
+
+> :bulb: **Tip:** Se usa el signo +, va afectar al parrafo que se encuentre ensegida del div con la clase que seleccionamos, pero solo va a fectar a ese parrafo.
+
+```css
+div.contenedor.adyacente + p {
+  background-color: #caffbf;
+}
+```
+
+> :bulb: **Tip:** selector hermano, se leciona al que esta almismo nivel
+
+```css
+div.contenedor.hermano ~ p {
+  background-color: #9bf6ff;
+}
+```
+
+### Pseudo Clases
+
+<details>
+<summary> Que es la PseudoClase?</summary>
+Esuna palabra clave que se anade alos selectores y que especifica un estado especial del elemento seleccionado.
+</details>
+
+> :bulb: **Tip:** Las pseudo clases nos van a permitir manipular ciertos estado de nuestro de nuestros elementos HTML
+
+Podemos cambiar el color de fondo al pasar el mause un div. Esto con <span style="color:red"> **:hover**</span>
+
+```css
+div.contenedor:hover {
+  background-color: #457b9d;
+  color: #f1faee;
+}
+```
+
+Podemos ocultar y mostrar al pasar el mause un parrafo. Esto con <span style="color:red"> **:hover**</span>
+
+```css
+div.contenedor.oculto p{
+    display: none;
+}
+div.contenedor.oculto:hover p{
+    display: block;
+    background-color: #a8dadc;
+    color: #023e8a;
+    padding: 15px;
+```
+
+> :bulb: **Tip:** Otra pseudo clase es `first-child`
+
+```css
+div.contenedor.primero p:first-child {
+  font-variant: small-caps;
+}
+```
+
+## Pseudo Elementos
+
+<details>
+<summary> Que es un PseudoElemento</summary>
+Se anaden a los selectores, pero no describen un estado especial sino que, permiten <span style="color:red"> **anadir estilos a una parte concreta del documento.**</span>
+</details>
+
+Funciona cuando seleccionamos el texto con el mause
+
+```css
+div.contenedor p::selection {
+  color: red;
+  background-color: yellow;
+}
+```
+
+Funciona cuando seleccionamos el texto con el mause, pero solo en la primera linea del parrafo, funciona de forma dinamica, si hacemos zoom solo aplicara para la primera linea.
+
+```css
+div.contenedor p::first-line {
+  font-variant: small-caps;
+  color: red;
+}
+```
+
+Funciona para cambiar la primera letra de cada parrafo que este dentro del div
+
+```css
+div.contenedor p::first-letter {
+  font-size: 1.5em;
+}
+```
+
+Funciona para agregar palabras o signos al principio o al final del parrafo.
+
+```css
+div.contenedor p::before {
+  content: "- ";
+}
+
+div.contenedor p::after {
+  content: " -";
+}
+```
+
+## Transparencia
+
+### Transparencia en imagenes 
+
+> :bulb: **Tip:** Lo podemos usar para una galeria de imagenes
+
+``` css
+img{
+    opacity: 0.5;
+}
+img:hover{
+    opacity: 1.0;
+}
+```
+
+## **Gradientes**
+
+
