@@ -22,6 +22,10 @@
   - [Esquina redondeada con contorno](#esquina-redondeada-con-contorno)
   - [Borde con imagen de fondo](#borde-con-imagen-de-fondo)
   - [Borde Circular](#borde-circular)
+  - [Fondos Multiples](#fondos-multiples)
+    - [Cuando la  imagen es grande](#cuando-la--imagen-es-grande)
+    - [Cuando queremos sobreponer una imagen encima de otra](#cuando-queremos-sobreponer-una-imagen-encima-de-otra)
+    - [Para que la imagen ocupe todo el contenido usaremos](#para-que-la-imagen-ocupe-todo-el-contenido-usaremos)
 - [**_BOX MODEL_**](#box-model)
   - [Ancho del Elemento Box Model](#ancho-del-elemento-box-model)
   - [Outline](#outline)
@@ -398,6 +402,28 @@ Aqui seria de forma simplificada
 ```
 
 ![bordes](img/bordescolor.png)
+
+### Fondos Multiples
+
+> :bulb: **Tip:** Cuando la imagen es mas pequena que el marco se repite, en ese caso usaremos `no-repeat`
+
+`background: url(img/gato.png) top 40px left 40px / 80px no-repeat;`
+
+backgruound(ruta)(posicion)(dimencion) no-repeat  
+valores (top, right,bottom, left, center)
+       arriba, derecha, abajo, izquierda, cdntro.
+
+#### Cuando la  imagen es grande
+
+usaremos la dimencion, para hacerlo mas pequeno y para no repetir la imagen solo usarenos no-repiear
+
+#### Cuando queremos sobreponer una imagen encima de otra
+
+Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.png) center/ 180px no-repeat,` y usaremos una coma para ceparar y llamar a la segunda imagen `url(img/mesa.png) center/`lo separamos con diagonal y usaremos cover  para que puedan convivir las 2 imagenes juntas `cover` y por ultimo para no tener ningun problema usaremos `no-repeat;`
+
+#### Para que la imagen ocupe todo el contenido usaremos 
+
+`background-size: contain;`
 
 ## **_BOX MODEL_**
 
