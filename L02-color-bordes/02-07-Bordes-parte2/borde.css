@@ -39,9 +39,9 @@
 }
 
 #b5 {
-  border-radius: 50%;
+  border-radius: 51% 49% 51% 49% / 51% 49% 51% 49%;
   background-color: blue;
   padding: 20px;
   width: 200px;
-  height: 150px;
+  height: 200px;
 }

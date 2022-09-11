@@ -1,16 +1,12 @@
 <H1>CURSO CSS UNI</H1>
 
 - [**_Introduccion_**](#introduccion)
+  - [Comentarios](#comentarios)
+  - [Desendencia](#desendencia)
   - [Tipos de CSS](#tipos-de-css)
-  - [Selector ID (#)](#selector-id-)
-  - [Clases (.)](#clases-)
-  - [Selector Universal (\*)](#selector-universal-)
-  - [Agrupar Elementos HTML y CSS](#agrupar-elementos-html-y-css)
-  - [Sunclases en CSS](#sunclases-en-css)
 - [**_COLORES, BORDES Y MAS_**](#colores-bordes-y-mas)
   - [Colores por nombre](#colores-por-nombre)
   - [Colores y Bordes](#colores-y-bordes)
-  - [Comentarios](#comentarios)
   - [Manejo de Bordes](#manejo-de-bordes)
   - [Ancho de Bordes](#ancho-de-bordes)
     - [Como aplicar una medida distinta en cada lado?](#como-aplicar-una-medida-distinta-en-cada-lado)
@@ -27,7 +23,8 @@
     - [Cuando queremos sobreponer una imagen encima de otra](#cuando-queremos-sobreponer-una-imagen-encima-de-otra)
     - [Para que la imagen ocupe todo el contenido usaremos](#para-que-la-imagen-ocupe-todo-el-contenido-usaremos)
 - [**_BOX MODEL_**](#box-model)
-  - [Ancho del Elemento Box Model](#ancho-del-elemento-box-model)
+  - [Width y Height en Box Model](#width-y-height-en-box-model)
+  - [Margin](#margin)
   - [Outline](#outline)
   - [Outline-Offset](#outline-offset)
   - [**_PADDING_**](#padding)
@@ -35,7 +32,7 @@
   - [Propiedad Max-Width](#propiedad-max-width)
   - [Propiedad Margin: Auto](#propiedad-margin-auto)
   - [Propiedad **_inherit_**](#propiedad-inherit)
-  - [Concepto de margin collapse](#concepto-de-margin-collapse)
+  - [Concepto de margin collapse (repetir)](#concepto-de-margin-collapse-repetir)
 - [**_Manejo de colores_**](#manejo-de-colores)
   - [Color por nombre HTML](#color-por-nombre-html)
   - [Manejo de colores **RGB**](#manejo-de-colores-rgb)
@@ -72,6 +69,14 @@
   - [Propiedad Display Inline-Block](#propiedad-display-inline-block)
   - [**Menu** con la propiedad Display Inline-Block](#menu-con-la-propiedad-display-inline-block)
 - [**Selectores**](#selectores)
+  - [Selctores basicos](#selctores-basicos)
+    - [Selector de <span style="color:red"> **Tipo**</span>](#selector-de--tipo)
+    - [Selector de Clase  (<span style="color:red"> **.**</span>)](#selector-de-clase---)
+  - [Selector ID (<span style="color:red"> **#**</span> )](#selector-id---)
+  - [Selector <span style="color:red"> **Universal**</span> (*)](#selector--universal-)
+  - [Selector  de <span style="color:red"> **Atributo**</span>](#selector--de--atributo)
+  - [Agrupar Elementos HTML y CSS](#agrupar-elementos-html-y-css)
+  - [Subclases en CSS](#subclases-en-css)
   - [Selectores Combinados](#selectores-combinados)
     - [Selectores Decendientes](#selectores-decendientes)
     - [Selector Child](#selector-child)
@@ -81,8 +86,34 @@
 - [Transparencia](#transparencia)
   - [Transparencia en imagenes](#transparencia-en-imagenes)
 - [**Gradientes**](#gradientes)
+- [Sombras](#sombras)
+  - [Sombras para el texto](#sombras-para-el-texto)
+  - [Sombras para las cajas](#sombras-para-las-cajas)
+- [**FLEXBOX**](#flexbox)
+  - [justify-content: flex](#justify-content-flex)
+  - [align-items](#align-items)
+  - [align-content](#align-content)
+  - [Modificar el size de manera individual](#modificar-el-size-de-manera-individual)
+- [Especificidad, Herencia, Cascada.](#especificidad-herencia-cascada)
+  - [Cascada](#cascada)
+  - [Espesificidad](#espesificidad)
+  - [Herencia](#herencia)
 
 ## **_Introduccion_**
+
+### Comentarios
+
+> :bulb: **Tip:** Para comentar en CSS utilizamos `/**/`  
+
+
+```css
+/*background-color: black;*/
+```
+
+### Desendencia
+
+
+
 
 ### Tipos de CSS
 
@@ -112,64 +143,6 @@ h1{
 <link rel="stylesheet" href="css/estilos.css">
 ```
 
-### Selector ID (#)
-
-> Este tipo de selector lo usaremos para modificar un elemento html que <span style="color:red">**es unico**</span> dentro de nuestra pagina y no se repite, como por ejemplo el **H1**
-
-```
-<h1 id="titulo">Universidad CSS</h1>
-```
-
-### Clases (.)
-
-> No usar numeros al inicio y si son dos palabras separar con \_ o -. Eso lo usaremos para <span style="color:red">**reutilizar**</span> en otros elementos de html
-
-> Para agregar otra clase al mismo elemento so hay que dejar un espacio e insrtar el nobre de la segunda clase.
-
-```
-<p class="centrar texto_grande">Iniciando el curso de CSS</p>
-<p class="centrar">www.globalmentoring.com.mx</p>
-```
-
-### Selector Universal (\*)
-
-> Este tipo de selector se aplica a toda nuestra pagina HTML. Como buena practica lo posicionaremos al inicio de nuestro documento css.
-
-```css
-* {
-  background-color: ghostwhite;
-  color: cornflowerblue;
-}
-```
-
-### Agrupar Elementos HTML y CSS
-
-> Esto para aplicar los mismos estilos a varios elementos html o tambien clases o selctores. Los podemos convinar o agrupar.
-
-```css
-h1,
-h2,
-p,
-div {
-  color: crimson;
-  text-align: center;
-}
-```
-
-### Sunclases en CSS
-
-> Utilizamos una clase que se aplicara a los elementos de html que sean del mismo tipo que seleccionamos (etiqueta p).
-
-```css
-p.centrar {
-  text-align: center;
-}
-```
-
-```html
-<p class="centrar">Iniciando el curso de CSS</p>
-<p class="centrar">www.globalmentoring.com.mx</p>
-```
 
 ## **_COLORES, BORDES Y MAS_**
 
@@ -206,11 +179,7 @@ Border se refiere al contorno, y los 10px al ancho de la linea del contorno, sol
 
 ![Border](img/borderNavegador.png)
 
-### Comentarios
 
-```css
-/*background-color: black;*/
-```
 
 ### Manejo de Bordes
 
@@ -427,14 +396,40 @@ Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.p
 
 ## **_BOX MODEL_**
 
-El padding y el Margin son transparentes y el border puede tner color.
+El padding y el Margin son transparentes y el border puede tener color.
 
-![Modelo de caja](img/modeloCaja.png)
+![Modelo de caja](img/modeloCaja.png)  
 
-### Ancho del Elemento Box Model
+![Modelo de caja 2](img/Box%20model.png)
 
-Debemos tener en cuenta las medidas del contenido + el padding + border + margin
+### Width y Height en Box Model
+El Width representa el ancho y el Height el alto de un elemento si vien esta propiedades no son requeridas para que un elemento se muestre, si son requeridas si un elemento no tiene contenido. 
 
+
+### Margin
+
+> :bulb: **Tip:** El margin engloba otras propiedades.
+
+- top (arriba)
+- bottom (abajo)
+- left (izqierda)
+- right (derecha)
+
+
+``` css
+    margin-top: 50px;
+    margin-bottom:30px;
+    margin-right: 25px; 
+    margin-left: 30px;
+```
+
+Aqui de forma simplificada
+
+`margin: 50px 30px 25px 30px;`
+`margin: 0px 20px 0px 0px;`
+`margin:top right bottom left;`
+
+> :bulb: **Tip:** El orden es como las manecillas del reloj
 ### Outline
 
 Este se encuentra entre el margin y el border,
@@ -451,6 +446,33 @@ Este se inserta entre el border y el Outline, solo se le puede aplicar un solo v
 ### **_PADDING_**
 
 Se encuentra entre el border y el contenido.
+
+ Para darle espacio al texto con la caja.
+
+``` css
+.box2{
+    padding: 20px;
+    background: REBECCAPURPLE;
+    /* color: white; */
+    margin-top: 30px;
+    margin-left: 20px;
+    overflow: hidden;
+    border: 2px solid steelblue;
+}
+```
+
+``` css
+    padding-top: 50px;
+    padding-bottom:30px;
+    padding-right: 25px; 
+    mpaddin-left: 30px;
+```
+
+`padding: 50px 30px 25px 30px;`
+`padding: 0px 20px 0px 0px;`
+`padding:top right bottom left;`
+
+> :bulb: **Tip:** El border y el padding si afactan al width y el height, para que no lo afecte usaremos la propiedad `box-sizing: border-box`, si el contenido sale de la caja puedes usar `overflow: hidden;` lo que se desborda lo esconde
 
 ![Padding](img/padding.png)
 
@@ -477,10 +499,12 @@ se pueden usar en pixeles o en porsentaje.
 
 `max-height:100px;`
 
+
+
 ### Propiedad Margin: Auto
 
 Lo utilizaremos para centrar un elmento.
-Con `margin: auto` va atomar automaticamente un por partes iguales el lado izquierdo como el lado derecho quedando asi centrado.
+Con `margin: auto` va atomar automaticamente un por partes iguales el lado izquierdo como el lado derecho quedando asi <span style="color:red"> **centrado**</span>.
 
 La propiedad de ` 0 auto;` el cero va atomar la parte superior (top) e infrior (bottom) y l auto el lado derecho (right) e izquierdo (left), siempre y cuando sean elementos inline.
 
@@ -509,14 +533,16 @@ p.interno {
 }
 ```
 
-### Concepto de margin collapse
+### Concepto de margin collapse (repetir)
 
 Esto ocurre cuando tenemos dos cajas, y se aplica en los margenes inferior y superior.
 
-El margen se junta con el margn del elemnto inferior, omando un solo margen para los dos,
+El margen se junta con el margn del elemnto inferior, tomando un solo margen para los dos,
 si el margen del elemento supeior es mayor ese es el que se toma. **_Los margenes no se suman_**
 
 ![collapse](img/collapse.png)
+
+
 
 ## **_Manejo de colores_**
 
@@ -854,15 +880,19 @@ Etiquetas con propiedad display block, van ocupar una nueva linea por completo
 `<span>`  
 `<a href="#">Link 1</a>`
 
+<details>
+<summary> Como volver un elemento block a inline❓</summary>
 Para modificar los elementos de block y se muestren en una sola linea usaremos.
 
 `display: inline;`
+</details>
+
 
 ![inline](img/inline.png)
 
 ### Display None
 
-Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio a diferencia de `visibility: hidden;` que mantiene el espacio.
+Con `display: none;`podemos ucultar ese elemento, ya no ocupa el espacio, a diferencia de `visibility: hidden;` que mantiene el espacio.
 
 ## **Posicionamiento de Elementos**
 
@@ -962,6 +992,105 @@ Con esta propiedad `display: inline-block;` podemos controlar el alto (height y 
 Con esta propiedad podemos usar una lista como un meno sin necesidad de flotar los elementos.
 
 ## **Selectores**
+
+<details>
+<summary> Que son los selectores❓</summary>
+Definen a que lementos se les aplicara los estilos que hayamos establecido, el selector cambiara a todos los elementos que coincidan con dicho selector.  
+</details>
+
+### Selctores basicos
+
+#### Selector de <span style="color:red"> **Tipo**</span>
+
+> :bulb: **Tip:** Selecciona todos los elementos que coinciden eon el nombre del elemento especificado  
+
+``` css
+h2{
+  color: steelblue;
+  }
+```
+#### Selector de Clase  (<span style="color:red"> **.**</span>)
+
+> :bulb: **Tip:** Selecciona todos los elementos que tienen el atributo class. Sintaxis: .classname  
+
+Ejemplo:
+
+``` css
+.borde{
+    border: 1px solid black;
+}
+```
+
+``` html
+<p class="centrar texto_grande">Iniciando el curso de CSS</p>
+<p class="centrar">www.globalmentoring.com.mx</p>
+```  
+
+``` css
+.😂{
+    border: 1px solid black;
+    font-size: 20px;
+}
+```
+
+> No usar numeros al inicio y si son dos palabras separar con \_ o -. Eso lo usaremos para <span style="color:red">**reutilizar**</span> en otros elementos de html
+
+> Para agregar otra clase al mismo elemento so hay que dejar un espacio e insrtar el nobre de la segunda clase.
+
+
+### Selector ID (<span style="color:red"> **#**</span> )
+
+> Este tipo de selector lo usaremos para modificar un elemento html que <span style="color:red">**es unico**</span> dentro de nuestra pagina y no se repite, como por ejemplo el **H1**
+
+``` html
+<h1 id="titulo">Universidad CSS</h1>
+```
+Utilizar selector id es una mala practica
+
+### Selector <span style="color:red"> **Universal**</span> (*)
+
+> Este tipo de selector se aplica a toda nuestra pagina HTML. Como buena practica lo posicionaremos al inicio de nuestro documento css.
+
+```css
+* {
+  background-color: ghostwhite;
+  color: cornflowerblue;
+}
+```
+
+  ### Selector  de <span style="color:red"> **Atributo**</span> 
+
+  ``` css
+  [href]{
+    text-decoration: none;
+}
+```
+
+### Agrupar Elementos HTML y CSS
+
+> Esto para aplicar los mismos estilos a varios elementos html o tambien clases o selctores. Los podemos convinar o agrupar.
+
+```css
+h1,h2,p,div {
+  color: crimson;
+  text-align: center;
+}
+```  
+
+### Subclases en CSS
+
+> Utilizamos una clase que se aplicara a los elementos de html que sean del mismo tipo que seleccionamos (etiqueta p).
+
+```css
+p.centrar {
+  text-align: center;
+}
+```
+
+```html
+<p class="centrar">Iniciando el curso de CSS</p>
+<p class="centrar">www.globalmentoring.com.mx</p>
+```
 
 ### Selectores Combinados
 
@@ -1106,4 +1235,163 @@ img:hover{
 
 ## **Gradientes**
 
+> :bulb: **Tip:** Los gradientes nos permiten añadir efectos de colores degradados en nuestros diseños. Los gradientes están disponibles desde CSS3 y se configuran como fondos, por lo que tendremos que usar la propiedad “background“. Disponemos de dos tipos de gradientes: lineal y radial.
+
+``` CSS
+body {
+  background: linear-gradient(#f72585, #3a0ca3);
+}1
+```
+Podemos modificar los parametros, agregando mas infrmacion. Por defaul el gradiente empieza de la parte superior a la parate inferior.
+
+`background: linear-gradient( to bottom right, #24404d, #6dbff1 #black);  
+
+`background: linear-gradient( 180deg, #24404d, #6dbff1 #black);  
+
+`background: radial-gradient( circle, #24404d, #6dbff1 #black);  
+
+
+## Sombras
+
+### Sombras para el texto
+
+`text-shadow: 1px 2px 3px rgba(32,32,32,0.3);`
+
+Valores por orden
+
+- 1px eje x Desplazamiento en la horizontal  
+- 2px eje vertical (ancho) Desplazamiento en la vertical  
+- 3px Desenfoque (blur = difuminado)  
+- rgba Color de la sombra  
+
+### Sombras para las cajas
+
+> :bulb: **Tip:** Estas se consiguen con el atributo «box-shadow» y la sintaxis sería la siguiente:
+
+`box-shadow: 1px 1px 1px 1px rgba(32,32,32,0.3);`  
+
+Por orden de aparición, los valores de unidades entregadas a box-shadow son los siguientes:
+
+- Desplazamiento de la sombra en la horizontal  
+- Desplazamiento de la sombra en vertical  
+- Desenfoque de la sombra  
+- Propagación de la sombra  
+- Color aplicado  
+
+Con el primer valor podemos mover la sombra a la izquierda -15 o derecha 15  
+
+Con el segundo valor el eje y, podemos mover la sombra hacia arriba o hacia abajo.  
+
+El tercer valor no soporta valores negativos
+
+Con el cuarto valor **spread** = propagar podemos hacer crecer la sombra  
+
+
+
+Los 4 valores iniciales los podemos entregar en distancia, por ejemplo píxeles. El último valor será un color. El color puede ser un RGB normal, pero es muy habitual que acabemos usando un RGBA porque le aplicará también una transparencia en el color de la sombra.
+
+## **FLEXBOX**
+
+Con flexbox es mas sencillo acomodar los elementos  
+
+1. Con `diplay: flex;` Colocamos las listas de manera vertical y en una sola linea.  
+2. Con `flex-direction:` posee cuatro posibles valores:
+   1. row (horizontal por defaul cargandose del lado ixquierdo)  
+   2. row-reverse (se cargan del lado derecho y de forma inversa)  
+   3. column (Se acomodan de la parte superior a la inferor)  
+   4. column-reverse (Para mostar de forma inversa)  
+3. Con `flex-wrap: wrap` lo usaremos cuando son mas elementos, para que al hacer mas pequena la pagina, los elementos pasen de forma automatica a la parte inferior.  
+4. Se pueden combinar las propiedades `flex-direction` y `flex-wrap` en la abreviatura `flex-flow` . El primer valor especificado es flex-direction y el segundo valor es flex-wrap.
+
+### justify-content: flex
+
+> :bulb: **Tip:** El valor inicial es flex-start que alineará los ítems al inicio del margen del contenedor (izquierda), pero también se podría definir como flex-end para alinearlos al final (derecha), o center para alinearlos al centro.
+
+<details>
+<summary> Como acomodar los elementos al centro, derecha o izquierda?</summary>
+Usaremos la propiedad `justify-content: flex-center;`
+</details>
+
+> :bulb: **Tip:** También podemos usar space-between para tomar todo el espacio sobrante después de que los ítems hayan sido colocados, y distribuir de forma pareja los ítems para que haya un espacio equitativo entre cada ítem. O bien, usamos el valor space-around para crear un espacio equitativo a la derecha e izquierda de cada ítem.  
+
+### align-items
+
+Se alinean en el eje vertical
+
+> :bulb: **Tip:** `flex-start` para que los ítems se alineen al comienzo del contenedor flex, `flex-end` para alinearlos al final, o `center` para alinearlos al centro. Valor por defaul es `stretch` estirado.  
+
+`align-items: baseline;`
+
+![baseline](img/baseline.png)
+
+
+### align-content
+
+### Modificar el size de manera individual
+
+> :bulb: **Tip:** Modificar el orden 
+
+``` html
+<p style="order:2">Texto 1</p>
+<p style="order:3">Texto 2</p>
+<p style="order:1">Texto 3</p>
+```  
+
+> :bulb: **Tip:** Que un elemnto ocupe mayor espacio
+
+``` html
+<p style="flex-grow:1">Texto 1</p>
+<p style="flex-grow:1">Texto 2</p>
+<p style="flex-grow:5">Texto 3</p>
+```  
+
+``` html
+<p style="flex-basis: 200px;">Texto 1</p>
+<p>Texto 2</p>
+<p>Texto 3</p>
+```
+
+![flex-grow](img/flex-grow.png)
+
+Alinear de manera viertical unicamente un elemeto
+
+``` html
+<p style="flex-basis: 200px;">Texto 1</p>
+<p style="align-self: center;">Texto 2</p>
+<p>Texto 3</p>
+```  
+
+## Especificidad, Herencia, Cascada.  
+
+### Cascada
+
+> :bulb: **Tip:** El codigo de abajo siempre va a sobreescribir el codigo de arriba si es que modifican la misma propiedad y selector.
+> 
+### Espesificidad
+
+Le ayuda al selector que lelemto se va a modificar
+
+Para medir la especificidad CSS usa numeros de 1 al 1000. 
+
+- 1000 inline 
+- 100 Id
+- 10 Class atributos
+- 1 Elementos
+
+[claculador de especificidad](https://specificity.keegan.st/)
+
+La cascada se va aplicar siempre que la especificidad se a igual.
+
+Lo que rompe la especificidad es el elemento `!important` pero su uso es una <span style="color:red"> **mala practica**</span>
+
+### Herencia
+
+<details>
+<summary> Como obligar a un elemento a heredar❓</summary>
+con la propiedad `inherit`
+</details>
+
+Cuando algo se hereda por defecto podemos usar la propiedad `initial` para volver a la propiedad inicial.
+
+> :bulb: **Tip:** Nos podemos ayudar del inspector para ver que esta pasando con la especificida y la herencia.
 
