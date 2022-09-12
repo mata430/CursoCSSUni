@@ -4,6 +4,10 @@
   - [Comentarios](#comentarios)
   - [Desendencia](#desendencia)
   - [Tipos de CSS](#tipos-de-css)
+  - [Trucos <span style="color: RED"> **(TIPS)**</span>](#trucos--tips)
+    - [Acentuar una frace con color](#acentuar-una-frace-con-color)
+    - [Tecnica para poner fondo a las cartas (mas de 2 cartas)](#tecnica-para-poner-fondo-a-las-cartas-mas-de-2-cartas)
+    - [Para hacer un indice](#para-hacer-un-indice)
 - [**_COLORES, BORDES Y MAS_**](#colores-bordes-y-mas)
   - [Colores por nombre](#colores-por-nombre)
   - [Colores y Bordes](#colores-y-bordes)
@@ -23,6 +27,7 @@
     - [Cuando la imagen es grande](#cuando-la-imagen-es-grande)
     - [Cuando queremos sobreponer una imagen encima de otra](#cuando-queremos-sobreponer-una-imagen-encima-de-otra)
     - [Para que la imagen ocupe todo el contenido usaremos](#para-que-la-imagen-ocupe-todo-el-contenido-usaremos)
+    - [Cuando queremos contraste entre el fondo y la letra](#cuando-queremos-contraste-entre-el-fondo-y-la-letra)
 - [**_BOX MODEL_**](#box-model)
   - [Width y Height en Box Model](#width-y-height-en-box-model)
   - [Margin](#margin)
@@ -89,7 +94,7 @@
     - [Selectores Decendientes](#selectores-decendientes)
     - [Selector Child](#selector-child)
     - [Selector Sibling (Adyacente)](#selector-sibling-adyacente)
-  - [Pseudo Clases](#pseudo-clases)
+- [**Pseudo Clases** <span style="color:yellow"> \***\*AQUI** **ME** **QUEDE\*\***</span>](#pseudo-clases--aqui-me-quede)
 - [Pseudo Elementos](#pseudo-elementos)
 - [Transparencia](#transparencia)
   - [Transparencia en imagenes](#transparencia-en-imagenes)
@@ -108,6 +113,10 @@
   - [Cascada](#cascada)
   - [Espesificidad](#espesificidad)
   - [Herencia](#herencia)
+- [Estilos de Listas](#estilos-de-listas)
+      - [List style type](#list-style-type)
+      - [List style image](#list-style-image)
+      - [List style position](#list-style-position)
 
 ## **_Introduccion_**
 
@@ -147,6 +156,54 @@ h1{
 
 ```
 <link rel="stylesheet" href="css/estilos.css">
+```
+
+### Trucos <span style="color: RED"> **(TIPS)**</span>
+
+#### Acentuar una frace con color
+
+1. Hacemos un clase
+   1. `.color-acento{ color: blueviolet; }`
+2. Envolvemos la frase con la etiqueta `<span>` con la clase anteriormente dicha.absoluto
+
+```html
+<h2>Somos <span class="color-acento">ProgramaYa!</span></h2>
+```
+
+#### Tecnica para poner fondo a las cartas (mas de 2 cartas)
+
+1. Primera carta (en css)
+   1. `.carta:first-child{}` o child(1)
+2. Secunda carta
+   1. `.carta:nth-child(2){}`
+3. Secunda carta
+   1. `.carta:nth-child(3){}`
+4. Adentro de las llaves, para dar un contraste entre el testo y la imagen
+
+```css
+background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("media/front-end.jpg");
+```
+
+5. Las cartas deben estar en un contenedor (div) aparte, con una clase
+
+#### Para hacer un indice
+
+1. Agremanos los nombres de las secciones despues de #.
+2. Para hacerlo mas **elegante** agregamos
+   1. `html{ scroll-behavior: smooth; }` en el CSS
+
+```css
+header>
+      <div class="container">
+        <p class="logo">Programa Ya!</p>
+        <nav>
+          <a href="#somos-proya">Quienes somos</a>
+          <a href="#nuestros-programas">Nuestros programas</a>
+          <a href="#caracteristicas">Caracteristicas</a>
+        </nav>
+      </div>
+    </header>
 ```
 
 ## **_COLORES, BORDES Y MAS_**
@@ -404,6 +461,15 @@ Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.p
 #### Para que la imagen ocupe todo el contenido usaremos
 
 `background-size: contain;`
+
+#### Cuando queremos contraste entre el fondo y la letra
+
+```css
+background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("media/hero.jpg");
+```
+
+con esto oscurecemos el fondo para resaltar el texto, solo agregamos esto antes el url `linear-gradient( 0deg, rgba(0,0,0,0.5),rgba(0, 0, 0, 0.5)) ,`
 
 ## **_BOX MODEL_**
 
@@ -760,7 +826,6 @@ Tambien podemos utilizar un valor
   > :bulb: Es una fuente responciva  
   > :bulb: no esta soportado en todos los navegadores.
 
-
 ## Google Fonts
 
 Aqui podremos encontrar muchas funtes de forma gratuita. [Google Fonts](https://fonts.google.com/)
@@ -786,7 +851,6 @@ Si queremos importar varias fuentes de google solo copiamos otra fuente con `@im
 
 `@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Roboto&display=swap');`  
 se agrega && family mas el nombre de la fuente.
-
 
 ## Efectos con Google Fonts
 
@@ -827,13 +891,13 @@ Lo podemos hacer de una forma reducida o simplificada.
 `max-height:400px`
 
 `min-width:200px`
-`min-height:200px` 
+`min-height:200px`
 
 `width: 100px`
 
 ##### Porcentaje
 
-`width:70%`  Los porcentajes son relativos al padre.
+`width:70%` Los porcentajes son relativos al padre.
 
 > :bulb: **Tip:** Para usar porcentajes con height necesitamos equeel padre tenga un height definido.
 
@@ -843,6 +907,7 @@ El viewport es lo que podemos visualizar en pantalla, lo ancho (vw) y lo alto (v
 
 `width: 50vw`
 `height: 100vh`
+
 ## Menejo de Iconos
 
 ### Iconos Bootstrap
@@ -933,21 +998,19 @@ Aliniar un texto o justifcar.
 
 `line-height: 30px;` define la altura de cada line del texto
 
-`text-decoration-line:`  Underline significa subrayalo, esta propiedad se divide en tres, line style, color,
+`text-decoration-line:` Underline significa subrayalo, esta propiedad se divide en tres, line style, color,
 
 - underline pone una line abajo del texto
 - overline pone una line arriba del texto
 - line-through tacha el texto
 
-se pueden convinar. `text-decoration-line: line-through overline underline;` usa las tres lineas 
+se pueden convinar. `text-decoration-line: line-through overline underline;` usa las tres lineas
 
 Para quitar la line usaremos none.
 
 `text-decoration-style: wavy;` Podemos cambiar el estilo de la lineas
 
 `text-decoration-color: crimson;` Aplica el color a la linea
-
-
 
 ## **Propiedad Display**
 
@@ -1236,7 +1299,7 @@ div.contenedor.hermano ~ p {
 }
 ```
 
-### Pseudo Clases
+## **Pseudo Clases** <span style="color:yellow"> \***\*AQUI** **ME** **QUEDE\*\***</span>
 
 <details>
 <summary> Que es la PseudoClase?</summary>
@@ -1514,3 +1577,32 @@ con la propiedad `inherit`
 Cuando algo se hereda por defecto podemos usar la propiedad `initial` para volver a la propiedad inicial.
 
 > :bulb: **Tip:** Nos podemos ayudar del inspector para ver que esta pasando con la especificida y la herencia.
+
+## Estilos de Listas
+
+Las listas tienen un padding left por defecto. Para eviar esto tenemos que poner un padding de 0, en los ul y ol (`ul,ol{padding:0;}`)
+
+`list-style: tyte image position;`
+
+> :bulb: **Tip:** sepuede utilizar en el ul, ol para modificar todos los elementos o en el li para modificar los elementos que tu elijas o con la clase que tengan los elementos
+
+##### List style type
+
+`list-style-tyte: disc;` Lista desordenada  
+`list-style-tyte: decimal;` Lista ordenada  
+`list-style-tyte: square;` Cuadrado  
+`list-style-tyte: lower-roman;` Numeros romanos  
+`list-style-tyte: upper-roman;` Numeros romanos en mayusculas  
+`list-style-tyte: circle;` circulo vacio
+`list-style-tyte: none;` elimina el estilo de las listas
+
+##### List style image
+
+`list-style-image: url(img/icono.png);` Podemos utilizar iconos para las listas
+
+##### List style position
+
+`list-style-position: outside;` Significa afuera del contenido, esta en el padding  
+`list-style-position: inside;` Asi estara adentro del contenido..
+
+> :bulb: **Tip:** Con `inside` aun que usemos un padding de 0, se van a seguir visualizando las vinetas.
