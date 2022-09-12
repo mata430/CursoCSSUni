@@ -18,8 +18,9 @@
   - [Esquina redondeada con contorno](#esquina-redondeada-con-contorno)
   - [Borde con imagen de fondo](#borde-con-imagen-de-fondo)
   - [Borde Circular](#borde-circular)
+  - [<details>](#details)
   - [Fondos Multiples](#fondos-multiples)
-    - [Cuando la  imagen es grande](#cuando-la--imagen-es-grande)
+    - [Cuando la imagen es grande](#cuando-la-imagen-es-grande)
     - [Cuando queremos sobreponer una imagen encima de otra](#cuando-queremos-sobreponer-una-imagen-encima-de-otra)
     - [Para que la imagen ocupe todo el contenido usaremos](#para-que-la-imagen-ocupe-todo-el-contenido-usaremos)
 - [**_BOX MODEL_**](#box-model)
@@ -33,6 +34,8 @@
   - [Propiedad Margin: Auto](#propiedad-margin-auto)
   - [Propiedad **_inherit_**](#propiedad-inherit)
   - [Concepto de margin collapse (repetir)](#concepto-de-margin-collapse-repetir)
+- [Propiedad Background](#propiedad-background)
+  - [Background Atachment](#background-atachment)
 - [**_Manejo de colores_**](#manejo-de-colores)
   - [Color por nombre HTML](#color-por-nombre-html)
   - [Manejo de colores **RGB**](#manejo-de-colores-rgb)
@@ -41,16 +44,21 @@
 - [**_Manejo de fondos_**](#manejo-de-fondos)
 - [**Formato de texto**](#formato-de-texto)
 - [**Fuentes**](#fuentes)
-- [**Estilos de funete**](#estilos-de-funete)
+- [**Estilos de fuentes**](#estilos-de-fuentes)
 - [Propiedad de Font-Size](#propiedad-de-font-size)
 - [Google Fonts](#google-fonts)
 - [Efectos con Google Fonts](#efectos-con-google-fonts)
 - [**Atributo font**](#atributo-font)
+- [Manejo de medidas](#manejo-de-medidas)
+  - [Limitar medidas y porcentajes](#limitar-medidas-y-porcentajes)
+      - [Porcentaje](#porcentaje)
+      - [Unidades viewport](#unidades-viewport)
 - [Menejo de Iconos](#menejo-de-iconos)
   - [Iconos Bootstrap](#iconos-bootstrap)
   - [Pasos para usar los iconos en Bootstrap](#pasos-para-usar-los-iconos-en-bootstrap)
 - [Iconos de Google](#iconos-de-google)
 - [Iconos de Ionicons](#iconos-de-ionicons)
+  - [Manejo de Textos](#manejo-de-textos)
 - [**Propiedad Display**](#propiedad-display)
   - [Display Block](#display-block)
   - [Display inline](#display-inline)
@@ -71,10 +79,10 @@
 - [**Selectores**](#selectores)
   - [Selctores basicos](#selctores-basicos)
     - [Selector de <span style="color:red"> **Tipo**</span>](#selector-de--tipo)
-    - [Selector de Clase  (<span style="color:red"> **.**</span>)](#selector-de-clase---)
+    - [Selector de Clase (<span style="color:red"> **.**</span>)](#selector-de-clase--)
   - [Selector ID (<span style="color:red"> **#**</span> )](#selector-id---)
-  - [Selector <span style="color:red"> **Universal**</span> (*)](#selector--universal-)
-  - [Selector  de <span style="color:red"> **Atributo**</span>](#selector--de--atributo)
+  - [Selector <span style="color:red"> **Universal**</span> (\*)](#selector--universal-)
+  - [Selector de <span style="color:red"> **Atributo**</span>](#selector-de--atributo)
   - [Agrupar Elementos HTML y CSS](#agrupar-elementos-html-y-css)
   - [Subclases en CSS](#subclases-en-css)
   - [Selectores Combinados](#selectores-combinados)
@@ -86,9 +94,11 @@
 - [Transparencia](#transparencia)
   - [Transparencia en imagenes](#transparencia-en-imagenes)
 - [**Gradientes**](#gradientes)
-- [Sombras](#sombras)
+- [**Sombras**](#sombras)
   - [Sombras para el texto](#sombras-para-el-texto)
   - [Sombras para las cajas](#sombras-para-las-cajas)
+  - [Drop Shadow (sombras para imagenes sin fondo)](#drop-shadow-sombras-para-imagenes-sin-fondo)
+    - [como removier el fondo de una imagen?](#como-removier-el-fondo-de-una-imagen)
 - [**FLEXBOX**](#flexbox)
   - [justify-content: flex](#justify-content-flex)
   - [align-items](#align-items)
@@ -103,17 +113,13 @@
 
 ### Comentarios
 
-> :bulb: **Tip:** Para comentar en CSS utilizamos `/**/`  
-
+> :bulb: **Tip:** Para comentar en CSS utilizamos `/**/`
 
 ```css
 /*background-color: black;*/
 ```
 
 ### Desendencia
-
-
-
 
 ### Tipos de CSS
 
@@ -142,7 +148,6 @@ h1{
 ```
 <link rel="stylesheet" href="css/estilos.css">
 ```
-
 
 ## **_COLORES, BORDES Y MAS_**
 
@@ -178,8 +183,6 @@ Border se refiere al contorno, y los 10px al ancho de la linea del contorno, sol
 ![Border](img/borderColorCss.png)
 
 ![Border](img/borderNavegador.png)
-
-
 
 ### Manejo de Bordes
 
@@ -223,6 +226,8 @@ De esta forma podemos modificar todos los lados del borde
   border-style: dotted solid dashed double;
 }
 ```
+
+[Pagina para crear border radios](https://border-radius.com/)
 
 ### Ancho de Bordes
 
@@ -372,6 +377,12 @@ Aqui seria de forma simplificada
 
 ![bordes](img/bordescolor.png)
 
+### <details>
+
+<summary> Como hacer una imagen o una caja❓</summary>
+usaremos `border-radius: 50%;` pero esto funciona solo cuando la imagen o la caja es un cuadrado, tenemos que dar una medida igual en el `width` y en el `height`, si el resutado distrociona la imagen podemos usar `object-fit: cover;` para solucionarlo
+</details>
+
 ### Fondos Multiples
 
 > :bulb: **Tip:** Cuando la imagen es mas pequena que el marco se repite, en ese caso usaremos `no-repeat`
@@ -380,17 +391,17 @@ Aqui seria de forma simplificada
 
 backgruound(ruta)(posicion)(dimencion) no-repeat  
 valores (top, right,bottom, left, center)
-       arriba, derecha, abajo, izquierda, cdntro.
+arriba, derecha, abajo, izquierda, cdntro.
 
-#### Cuando la  imagen es grande
+#### Cuando la imagen es grande
 
 usaremos la dimencion, para hacerlo mas pequeno y para no repetir la imagen solo usarenos no-repiear
 
 #### Cuando queremos sobreponer una imagen encima de otra
 
-Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.png) center/ 180px no-repeat,` y usaremos una coma para ceparar y llamar a la segunda imagen `url(img/mesa.png) center/`lo separamos con diagonal y usaremos cover  para que puedan convivir las 2 imagenes juntas `cover` y por ultimo para no tener ningun problema usaremos `no-repeat;`
+Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.png) center/ 180px no-repeat,` y usaremos una coma para ceparar y llamar a la segunda imagen `url(img/mesa.png) center/`lo separamos con diagonal y usaremos cover para que puedan convivir las 2 imagenes juntas `cover` y por ultimo para no tener ningun problema usaremos `no-repeat;`
 
-#### Para que la imagen ocupe todo el contenido usaremos 
+#### Para que la imagen ocupe todo el contenido usaremos
 
 `background-size: contain;`
 
@@ -398,13 +409,13 @@ Primero llamaremos a la imagen que va estar enciama `background: url(img/plato.p
 
 El padding y el Margin son transparentes y el border puede tener color.
 
-![Modelo de caja](img/modeloCaja.png)  
+![Modelo de caja](img/modeloCaja.png)
 
 ![Modelo de caja 2](img/Box%20model.png)
 
 ### Width y Height en Box Model
-El Width representa el ancho y el Height el alto de un elemento si vien esta propiedades no son requeridas para que un elemento se muestre, si son requeridas si un elemento no tiene contenido. 
 
+El Width representa el ancho y el Height el alto de un elemento si vien esta propiedades no son requeridas para que un elemento se muestre, si son requeridas si un elemento no tiene contenido.
 
 ### Margin
 
@@ -415,12 +426,11 @@ El Width representa el ancho y el Height el alto de un elemento si vien esta pro
 - left (izqierda)
 - right (derecha)
 
-
-``` css
-    margin-top: 50px;
-    margin-bottom:30px;
-    margin-right: 25px; 
-    margin-left: 30px;
+```css
+margin-top: 50px;
+margin-bottom: 30px;
+margin-right: 25px;
+margin-left: 30px;
 ```
 
 Aqui de forma simplificada
@@ -430,6 +440,7 @@ Aqui de forma simplificada
 `margin:top right bottom left;`
 
 > :bulb: **Tip:** El orden es como las manecillas del reloj
+
 ### Outline
 
 Este se encuentra entre el margin y el border,
@@ -447,25 +458,25 @@ Este se inserta entre el border y el Outline, solo se le puede aplicar un solo v
 
 Se encuentra entre el border y el contenido.
 
- Para darle espacio al texto con la caja.
+Para darle espacio al texto con la caja.
 
-``` css
-.box2{
-    padding: 20px;
-    background: REBECCAPURPLE;
-    /* color: white; */
-    margin-top: 30px;
-    margin-left: 20px;
-    overflow: hidden;
-    border: 2px solid steelblue;
+```css
+.box2 {
+  padding: 20px;
+  background: REBECCAPURPLE;
+  /* color: white; */
+  margin-top: 30px;
+  margin-left: 20px;
+  overflow: hidden;
+  border: 2px solid steelblue;
 }
 ```
 
-``` css
-    padding-top: 50px;
-    padding-bottom:30px;
-    padding-right: 25px; 
-    mpaddin-left: 30px;
+```css
+padding-top: 50px;
+padding-bottom: 30px;
+padding-right: 25px;
+mpaddin-left: 30px;
 ```
 
 `padding: 50px 30px 25px 30px;`
@@ -498,8 +509,6 @@ se pueden usar en pixeles o en porsentaje.
 `max-width: 300px;`
 
 `max-height:100px;`
-
-
 
 ### Propiedad Margin: Auto
 
@@ -542,7 +551,29 @@ si el margen del elemento supeior es mayor ese es el que se toma. **_Los margene
 
 ![collapse](img/collapse.png)
 
+## Propiedad Background
 
+Sirve para poner fondos de colores al elemento que debe tener un width y un height, pero tambien podemos poner gradientes e imagenes de fondo.
+
+`background-color: rgb(100, 100, 250);` Le da color al elmento.
+
+`background-color:transparent;` Pone transparente el background.
+
+`background-image: url(img/imagen.png);` nos permite poner una imagen de fondo
+
+`background-repeat: no-repeat;` Hae que no se repita la imagen
+
+`background-position: 30px 100px;` El primer valor es y i si es negativo lo va amover a la izquierda y pisitivo a la derecha, el segundo valor es x y lo va a mover arriva si es negativo y abajo si es positivo. Tambien podemos usar palabras resrvadas `background-position: top bottom left right center;` solo podemos usar dos valores para posicionar el elemento. Si lo usamos con pixeles lo va empujar dependiendo de la palabra reservada qu utilicemos `background-position: top 10px right 30px;`
+
+`background-size:70% 300%;` Modificar el Tamano de la imagen y Podemos usar tambien pixeles
+
+`background-size: contain;` Escala la imagen al mayor tamano posible sin recortar y sin estirar a la imagen.
+
+`background-size: cover;` Escala la imagn sin estiararla y recorta para que ocupe todo el elemento.
+
+### Background Atachment
+
+`background-atachment: fixed;` Nos permite modificar que tan fijo es la imagen. LO usaresmo cuando ocupemos el 100% del width y casi el 100% del height en el navegador. Nos da un efecto paralax
 
 ## **_Manejo de colores_**
 
@@ -664,7 +695,7 @@ Tipos de funtes mas representativas.amarillo
 - Courier New (monospace)
 - Lucida Handwriting (cursive)
 
-Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias opciones, devido a que algunas no s pueden reconoser por l navegador, por si falla alguna pueda mostrar otra.
+Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias opciones, devido a que algunas no se pueden reconoser por el navegador, por si falla alguna pueda mostrar otra.
 
 > :bulb: **Tip:** Si en el nombre de la funte tenemos espacios utilizaremos comillas.
 > :bulb: **Tip:** La fuentes de tipo serif son las que tienen las puntas redondiadas.
@@ -675,7 +706,7 @@ Para aplicar el tipo de funte utilizaremos `font-family:` nos despliega varias o
 }
 ```
 
-## **Estilos de funete**
+## **Estilos de fuentes**
 
 `font-style:`
 
@@ -729,6 +760,7 @@ Tambien podemos utilizar un valor
   > :bulb: Es una fuente responciva  
   > :bulb: no esta soportado en todos los navegadores.
 
+
 ## Google Fonts
 
 Aqui podremos encontrar muchas funtes de forma gratuita. [Google Fonts](https://fonts.google.com/)
@@ -742,6 +774,8 @@ Hay dos formas de utilizar las fuentes de google.
 - `@import`
   - > :bulb: **Tip:** Esta va insertada en el documento CSS, se pega en la parte de arriva si la etiqueta style
 
+Al final de la pagina en el titulo **pairings** podemos ve que fuente convina con la que selecionamos.
+
 Para utilizarla en un titulo
 
 usaremos `font-family:` y en la pagina de google copiaremos donde dice **CSS rules to specify families**
@@ -752,6 +786,7 @@ Si queremos importar varias fuentes de google solo copiamos otra fuente con `@im
 
 `@import url('https://fonts.googleapis.com/css2?family=Sofia&family=Roboto&display=swap');`  
 se agrega && family mas el nombre de la fuente.
+
 
 ## Efectos con Google Fonts
 
@@ -780,6 +815,34 @@ Lo podemos hacer de una forma reducida o simplificada.
     font: italic small-caps bolder 20px Roboto, sans-serif;
 ```
 
+## Manejo de medidas
+
+- Pixeles: Simpre van hacer fijos
+- Rem: Es relativa, depende eel font-sixz del html, se recomienda su uso en textos. Su base son 16px
+- EM: Es relativo al size de fuente del padre o del mismo elemento, se acumula en cascada.
+
+### Limitar medidas y porcentajes
+
+`max-width:400px`
+`max-height:400px`
+
+`min-width:200px`
+`min-height:200px` 
+
+`width: 100px`
+
+##### Porcentaje
+
+`width:70%`  Los porcentajes son relativos al padre.
+
+> :bulb: **Tip:** Para usar porcentajes con height necesitamos equeel padre tenga un height definido.
+
+##### Unidades viewport
+
+El viewport es lo que podemos visualizar en pantalla, lo ancho (vw) y lo alto (vh), va del 1 al 100. Es adaptable en pantalla.
+
+`width: 50vw`
+`height: 100vh`
 ## Menejo de Iconos
 
 ### Iconos Bootstrap
@@ -851,6 +914,41 @@ Pasos para usarlos iconos
 
 > :bulb: **Tip:** Por cada link que agreguemos la pagina web se va a demorar mas en cargar.
 
+### Manejo de Textos
+
+<details>
+<summary> Que significa text-align❓</summary>
+Aliniar un texto o justifcar.
+</details>
+
+`text-align: justify;` Justifica al texto. pero separa las palabras, no es muy remomendable usarlo
+
+`letter-spacing: 20px;` es para juntar o separar las letras usando valores positivos y negativos
+
+`word-spacing: 30px;` es para definir el espaciado entre cada palabra
+
+`text-shadow: 3px 3px 6px rgb(0, 0, 0, 05)` es para darle una sombra al texto
+
+`text-transform:uppercase;` es para transformar el texto por ejemplo a mayusculas, minusculas `lowercase`, poner una mayuscula alprincipio de cada palabra `capitalize`
+
+`line-height: 30px;` define la altura de cada line del texto
+
+`text-decoration-line:`  Underline significa subrayalo, esta propiedad se divide en tres, line style, color,
+
+- underline pone una line abajo del texto
+- overline pone una line arriba del texto
+- line-through tacha el texto
+
+se pueden convinar. `text-decoration-line: line-through overline underline;` usa las tres lineas 
+
+Para quitar la line usaremos none.
+
+`text-decoration-style: wavy;` Podemos cambiar el estilo de la lineas
+
+`text-decoration-color: crimson;` Aplica el color a la linea
+
+
+
 ## **Propiedad Display**
 
 ### Display Block
@@ -885,8 +983,8 @@ Etiquetas con propiedad display block, van ocupar una nueva linea por completo
 Para modificar los elementos de block y se muestren en una sola linea usaremos.
 
 `display: inline;`
-</details>
 
+</details>
 
 ![inline](img/inline.png)
 
@@ -1002,34 +1100,35 @@ Definen a que lementos se les aplicara los estilos que hayamos establecido, el s
 
 #### Selector de <span style="color:red"> **Tipo**</span>
 
-> :bulb: **Tip:** Selecciona todos los elementos que coinciden eon el nombre del elemento especificado  
+> :bulb: **Tip:** Selecciona todos los elementos que coinciden eon el nombre del elemento especificado
 
-``` css
-h2{
+```css
+h2 {
   color: steelblue;
-  }
-```
-#### Selector de Clase  (<span style="color:red"> **.**</span>)
-
-> :bulb: **Tip:** Selecciona todos los elementos que tienen el atributo class. Sintaxis: .classname  
-
-Ejemplo:
-
-``` css
-.borde{
-    border: 1px solid black;
 }
 ```
 
-``` html
+#### Selector de Clase (<span style="color:red"> **.**</span>)
+
+> :bulb: **Tip:** Selecciona todos los elementos que tienen el atributo class. Sintaxis: .classname
+
+Ejemplo:
+
+```css
+.borde {
+  border: 1px solid black;
+}
+```
+
+```html
 <p class="centrar texto_grande">Iniciando el curso de CSS</p>
 <p class="centrar">www.globalmentoring.com.mx</p>
-```  
+```
 
-``` css
-.😂{
-    border: 1px solid black;
-    font-size: 20px;
+```css
+.😂 {
+  border: 1px solid black;
+  font-size: 20px;
 }
 ```
 
@@ -1037,17 +1136,17 @@ Ejemplo:
 
 > Para agregar otra clase al mismo elemento so hay que dejar un espacio e insrtar el nobre de la segunda clase.
 
-
 ### Selector ID (<span style="color:red"> **#**</span> )
 
 > Este tipo de selector lo usaremos para modificar un elemento html que <span style="color:red">**es unico**</span> dentro de nuestra pagina y no se repite, como por ejemplo el **H1**
 
-``` html
+```html
 <h1 id="titulo">Universidad CSS</h1>
 ```
+
 Utilizar selector id es una mala practica
 
-### Selector <span style="color:red"> **Universal**</span> (*)
+### Selector <span style="color:red"> **Universal**</span> (\*)
 
 > Este tipo de selector se aplica a toda nuestra pagina HTML. Como buena practica lo posicionaremos al inicio de nuestro documento css.
 
@@ -1058,11 +1157,11 @@ Utilizar selector id es una mala practica
 }
 ```
 
-  ### Selector  de <span style="color:red"> **Atributo**</span> 
+### Selector de <span style="color:red"> **Atributo**</span>
 
-  ``` css
-  [href]{
-    text-decoration: none;
+```css
+[href] {
+  text-decoration: none;
 }
 ```
 
@@ -1071,11 +1170,14 @@ Utilizar selector id es una mala practica
 > Esto para aplicar los mismos estilos a varios elementos html o tambien clases o selctores. Los podemos convinar o agrupar.
 
 ```css
-h1,h2,p,div {
+h1,
+h2,
+p,
+div {
   color: crimson;
   text-align: center;
 }
-```  
+```
 
 ### Subclases en CSS
 
@@ -1220,38 +1322,44 @@ div.contenedor p::after {
 
 ## Transparencia
 
-### Transparencia en imagenes 
+### Transparencia en imagenes
 
 > :bulb: **Tip:** Lo podemos usar para una galeria de imagenes
 
-``` css
-img{
-    opacity: 0.5;
+```css
+img {
+  opacity: 0.5;
 }
-img:hover{
-    opacity: 1.0;
+img:hover {
+  opacity: 1;
 }
 ```
 
 ## **Gradientes**
 
+Paginas para gradientes
+
+- [CSS Gradient](https://cssgradient.io/)
+- [webgradients.com](https://webgradients.com/)
+- [uigradients.com](https://uigradients.com/#Martini)
+
 > :bulb: **Tip:** Los gradientes nos permiten añadir efectos de colores degradados en nuestros diseños. Los gradientes están disponibles desde CSS3 y se configuran como fondos, por lo que tendremos que usar la propiedad “background“. Disponemos de dos tipos de gradientes: lineal y radial.
 
-``` CSS
+```CSS
 body {
   background: linear-gradient(#f72585, #3a0ca3);
 }1
 ```
+
 Podemos modificar los parametros, agregando mas infrmacion. Por defaul el gradiente empieza de la parte superior a la parate inferior.
 
-`background: linear-gradient( to bottom right, #24404d, #6dbff1 #black);  
+`background: linear-gradient( to bottom right, #24404d, #6dbff1 #black);
 
-`background: linear-gradient( 180deg, #24404d, #6dbff1 #black);  
+`background: linear-gradient( 180deg, #24404d, #6dbff1 #black);
 
-`background: radial-gradient( circle, #24404d, #6dbff1 #black);  
+`background: radial-gradient( circle, #24404d, #6dbff1 #black);
 
-
-## Sombras
+## **Sombras**
 
 ### Sombras para el texto
 
@@ -1259,48 +1367,61 @@ Podemos modificar los parametros, agregando mas infrmacion. Por defaul el gradie
 
 Valores por orden
 
-- 1px eje x Desplazamiento en la horizontal  
-- 2px eje vertical (ancho) Desplazamiento en la vertical  
-- 3px Desenfoque (blur = difuminado)  
-- rgba Color de la sombra  
+- 1px eje x Desplazamiento en la horizontal
+- 2px eje vertical (ancho) Desplazamiento en la vertical
+- 3px Desenfoque (blur = difuminado)
+- rgba Color de la sombra
 
 ### Sombras para las cajas
 
-> :bulb: **Tip:** Estas se consiguen con el atributo «box-shadow» y la sintaxis sería la siguiente:
+> :bulb: **Tip:** Estas se consiguen con el atributo «box-shadow», lo podemos usar solo utilizando los 2 primeros valores y la sintaxis sería la siguiente:
 
-`box-shadow: 1px 1px 1px 1px rgba(32,32,32,0.3);`  
+Esto ocurre cuando usamos solo dos valores, currentColor es una variable que utiliza el color por defecto
+`box-shadow: 10px 10px 0 0 currentColor;`
+
+`box-shadow: h-offset v-offset blur spread color;`
+
+`box-shadow: 1px 1px 1px 1px rgba(32,32,32,0.3);`
 
 Por orden de aparición, los valores de unidades entregadas a box-shadow son los siguientes:
 
-- Desplazamiento de la sombra en la horizontal  
-- Desplazamiento de la sombra en vertical  
-- Desenfoque de la sombra  
-- Propagación de la sombra  
-- Color aplicado  
+- Desplazamiento de la sombra en la horizontal
+- Desplazamiento de la sombra en vertical
+- Desenfoque de la sombra
+- Propagación de la sombra
+- Color aplicado
 
-Con el primer valor podemos mover la sombra a la izquierda -15 o derecha 15  
+Con el primer valor podemos mover la sombra a la izquierda -15 o derecha 15
 
-Con el segundo valor el eje y, podemos mover la sombra hacia arriba o hacia abajo.  
+Con el segundo valor el eje y, podemos mover la sombra hacia arriba o hacia abajo.
 
 El tercer valor no soporta valores negativos
 
-Con el cuarto valor **spread** = propagar podemos hacer crecer la sombra  
-
-
+Con el cuarto valor **spread** = propagar podemos hacer crecer la sombra
 
 Los 4 valores iniciales los podemos entregar en distancia, por ejemplo píxeles. El último valor será un color. El color puede ser un RGB normal, pero es muy habitual que acabemos usando un RGBA porque le aplicará también una transparencia en el color de la sombra.
 
+### Drop Shadow (sombras para imagenes sin fondo)
+
+De esta forma le podemos dar fondo a las imagenes que no tienen fondo (png)
+
+`filter: drop-shadow(0 0 40px gold):`
+
+#### como removier el fondo de una imagen?
+
+[Pagina para remover fondos de la imagen]()
+
 ## **FLEXBOX**
 
-Con flexbox es mas sencillo acomodar los elementos  
+Con flexbox es mas sencillo acomodar los elementos
 
-1. Con `diplay: flex;` Colocamos las listas de manera vertical y en una sola linea.  
+1. Con `diplay: flex;` Colocamos las listas de manera vertical y en una sola linea.
 2. Con `flex-direction:` posee cuatro posibles valores:
-   1. row (horizontal por defaul cargandose del lado ixquierdo)  
-   2. row-reverse (se cargan del lado derecho y de forma inversa)  
-   3. column (Se acomodan de la parte superior a la inferor)  
-   4. column-reverse (Para mostar de forma inversa)  
-3. Con `flex-wrap: wrap` lo usaremos cuando son mas elementos, para que al hacer mas pequena la pagina, los elementos pasen de forma automatica a la parte inferior.  
+   1. row (horizontal por defaul cargandose del lado ixquierdo)
+   2. row-reverse (se cargan del lado derecho y de forma inversa)
+   3. column (Se acomodan de la parte superior a la inferor)
+   4. column-reverse (Para mostar de forma inversa)
+3. Con `flex-wrap: wrap` lo usaremos cuando son mas elementos, para que al hacer mas pequena la pagina, los elementos pasen de forma automatica a la parte inferior.
 4. Se pueden combinar las propiedades `flex-direction` y `flex-wrap` en la abreviatura `flex-flow` . El primer valor especificado es flex-direction y el segundo valor es flex-wrap.
 
 ### justify-content: flex
@@ -1312,40 +1433,39 @@ Con flexbox es mas sencillo acomodar los elementos
 Usaremos la propiedad `justify-content: flex-center;`
 </details>
 
-> :bulb: **Tip:** También podemos usar space-between para tomar todo el espacio sobrante después de que los ítems hayan sido colocados, y distribuir de forma pareja los ítems para que haya un espacio equitativo entre cada ítem. O bien, usamos el valor space-around para crear un espacio equitativo a la derecha e izquierda de cada ítem.  
+> :bulb: **Tip:** También podemos usar space-between para tomar todo el espacio sobrante después de que los ítems hayan sido colocados, y distribuir de forma pareja los ítems para que haya un espacio equitativo entre cada ítem. O bien, usamos el valor space-around para crear un espacio equitativo a la derecha e izquierda de cada ítem.
 
 ### align-items
 
 Se alinean en el eje vertical
 
-> :bulb: **Tip:** `flex-start` para que los ítems se alineen al comienzo del contenedor flex, `flex-end` para alinearlos al final, o `center` para alinearlos al centro. Valor por defaul es `stretch` estirado.  
+> :bulb: **Tip:** `flex-start` para que los ítems se alineen al comienzo del contenedor flex, `flex-end` para alinearlos al final, o `center` para alinearlos al centro. Valor por defaul es `stretch` estirado.
 
 `align-items: baseline;`
 
 ![baseline](img/baseline.png)
 
-
 ### align-content
 
 ### Modificar el size de manera individual
 
-> :bulb: **Tip:** Modificar el orden 
+> :bulb: **Tip:** Modificar el orden
 
-``` html
+```html
 <p style="order:2">Texto 1</p>
 <p style="order:3">Texto 2</p>
 <p style="order:1">Texto 3</p>
-```  
+```
 
 > :bulb: **Tip:** Que un elemnto ocupe mayor espacio
 
-``` html
+```html
 <p style="flex-grow:1">Texto 1</p>
 <p style="flex-grow:1">Texto 2</p>
 <p style="flex-grow:5">Texto 3</p>
-```  
+```
 
-``` html
+```html
 <p style="flex-basis: 200px;">Texto 1</p>
 <p>Texto 2</p>
 <p>Texto 3</p>
@@ -1355,25 +1475,25 @@ Se alinean en el eje vertical
 
 Alinear de manera viertical unicamente un elemeto
 
-``` html
+```html
 <p style="flex-basis: 200px;">Texto 1</p>
 <p style="align-self: center;">Texto 2</p>
 <p>Texto 3</p>
-```  
+```
 
-## Especificidad, Herencia, Cascada.  
+## Especificidad, Herencia, Cascada.
 
 ### Cascada
 
 > :bulb: **Tip:** El codigo de abajo siempre va a sobreescribir el codigo de arriba si es que modifican la misma propiedad y selector.
-> 
+
 ### Espesificidad
 
 Le ayuda al selector que lelemto se va a modificar
 
-Para medir la especificidad CSS usa numeros de 1 al 1000. 
+Para medir la especificidad CSS usa numeros de 1 al 1000.
 
-- 1000 inline 
+- 1000 inline
 - 100 Id
 - 10 Class atributos
 - 1 Elementos
@@ -1394,4 +1514,3 @@ con la propiedad `inherit`
 Cuando algo se hereda por defecto podemos usar la propiedad `initial` para volver a la propiedad inicial.
 
 > :bulb: **Tip:** Nos podemos ayudar del inspector para ver que esta pasando con la especificida y la herencia.
-
